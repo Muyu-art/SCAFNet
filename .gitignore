@@ -1,0 +1,35 @@
+﻿__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# logs/outputs
+logs/
+log/
+work_dirs/
+outputs/
+output/
+runs/
+wandb/
+tensorboard/
+checkpoints/
+ckpt/
+*.pth
+*.pt
+*.ckpt
+
+# data
+data/
+datasets/
+*.npy
+*.npz
+*.pkl
+*.bin
+*.tar
+*.zip
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
