@@ -2,6 +2,7 @@ CLASS_NAMES: ['Car', 'Pedestrian', 'Cyclist']
 
 DATA_CONFIG:
     _BASE_CONFIG_: cfgs/dataset_configs/kitti_dataset.yaml
+    GET_ITEM_LIST: ["points", "images"]  #LiDAR And Image
     DATA_PROCESSOR:
         - NAME: mask_points_and_boxes_outside_range
           REMOVE_OUTSIDE_BOXES: True
@@ -19,6 +20,14 @@ DATA_CONFIG:
             'train': 16000,
             'test': 40000
           }
+
+        - NAME: process_image_features
+          IMAGE_SIZE: [ 256, 704 ]
+          IMAGE_NORM: True
+          IMAGE_STD_NORM: True        # 是否做 mean/std
+          IMAGE_MEAN: [ 0.485, 0.456, 0.406 ]
+          IMAGE_STD: [ 0.229, 0.224, 0.225 ]
+
     EVAL_CONFIG:
         SAVE_EVAL_RESULTS: True
 
@@ -37,7 +46,6 @@ MODEL:
     IMAGE_FPN:
         NAME: 'ImageFPN'
         IN_CHANNELS_LIST: [64, 128, 256, 512]   # ← ResNet18 特征通道
-#        IN_CHANNELS_LIST: [256, 512, 1024, 2048]  # 图像主干各层输出通道
         OUT_CHANNELS: 128                         # 每层 FPN 输出通道 C = 128
 
     IMAGE_BACKBONE:
@@ -50,7 +58,7 @@ MODEL:
         USE_RESIDUAL: True     # 是否使用残差连接（论文中有）
 
     CAM:
-        NAME: 'CAFCAMModule'   # 名字给自己看即可，不影响 import
+        NAME: 'CAFCAMModule'
         IN_CHANNELS: 128       # 每个尺度的通道数 C
         NUM_STAGES: 2          # 与 CMME 保持一致
         ATTN_RATIO: 16         # 通道注意力 MLP 降维比
@@ -58,11 +66,7 @@ MODEL:
 
     MAP_TO_BEV:
         NAME: HeightCompression
-        NUM_BEV_FEATURES: 128  # 与 VoxelBackBone8x 输出通道对齐，一般不动
-
-    DATA_PROCESSOR:
-        - NAME: process_image_features
-          IMAGE_SIZE: [256, 704]
+        NUM_BEV_FEATURES: 64  # 与 VoxelBackBone8x 输出通道对齐，一般不动
 
     BACKBONE_3D:
         NAME: VoxelBackBone8x
@@ -148,28 +152,54 @@ MODEL:
         STAGES: 3
 
         PART:
-          IN_CHANNEL: 256
-          SIZE: 7
-          GRID_OFFSETS: [ 0., 40. ]
-          FEATMAP_STRIDE: 0.4
+            IN_CHANNEL: 256
+            SIZE: 7
+            GRID_OFFSETS: [0., 40.]
+            FEATMAP_STRIDE: 0.4
 
-        SHARED_FC: [ 256, 256 ]
-        CLS_FC: [ 256, 256 ]
-        REG_FC: [ 256, 256 ]
+        SHARED_FC: [256, 256]
+        CLS_FC: [256, 256]
+        REG_FC: [256, 256]
         DP_RATIO: 0.3
 
-        # ===== FGSP（SNM / support_no_ms）=====
+        # ===== FGSP（SNM / support_no_ms 最稳配置 - for CasA_V_FGSP）=====
         USE_FGSP: True
-        FGSP_MODE: 'support_no_ms'
+        FGSP_MODE: 'support_no_ms'          # TopK 支撑点 + 单尺度（不启用多半径聚合）
+
+        # 支撑点数：先 8（稳），别上来 12
         FGSP_NUM_SUPPORT: 8
 
-        FGSP_GEO_SCALE: 0.0
-        FGSP_SCORER_SCORE_TEMP: 1.0      # 从 2.0 降到 1.0（稳很多）
-        FGSP_BETA_INIT: 0.08             # 比 0.15 更保守
-        FGSP_USE_GATE: True
+        # 单尺度半径：0.5 起步最稳（你之前 0.6 也行，但更容易影响 Ped）
+        FGSP_RADII: [ 0.5 ]
 
-        FGSP_ROUTE_BY_CLASS: True
-        FGSP_ROUTE_BASELINE_LABELS: [ 3 ]   # 1:Car, 2:Ped, 3:Cyclist
+        # 邻域聚合（FGSPRoIEncoder 内用）
+        FGSP_TOPK_NEI: 16                   # 对应代码 topk_neighbors=FGSP_TOPK_NEI
+        FGSP_USE_SOFTMAX_WEIGHT: False      # 对应 use_softmax_weight
+        FGSP_USE_SCORE_WEIGHT: True         # 对应 use_score_weight
+        FGSP_MS_RESIDUAL: 0.3               # 对应 residual_scale（残差注入幅度）
+
+        # scorer（决定 fg_scores 对比度 & Top-K 质量）
+        FGSP_GEO_SCALE: 0.0                 # 先关 geo，稳定后再慢慢加 0.1→0.3
+        FGSP_SCORER_SCORE_TEMP: 2.0         # 1.5~2.5，先用 2.0 增强区分度
+
+        # score_only 才会用到（你现在 support_no_ms 不用，但保留无害）
+        FGSP_SCORE_SCALE: 0.5               # 对应 score_only_lambda（lambda）
+        # 如果你后面想让 scorer 内部更“硬”一点，用这个：
+        # FGSP_SCORER_SCORE_TEMP: 2.0
+
+        # ===== 融合稳定项（CasA 很敏感，务必保留）=====
+        FGSP_USE_GATE: True                 # 门控融合，防止 logit/框数漂移
+
+        # beta gate（你代码里是 sigmoid(beta_logit) * beta_max）
+        FGSP_BETA_MAX: 0.15                 # 上限（CasA 更敏感，建议 <=0.15）
+        FGSP_BETA_INIT: 0.03                # 初始极小，让模型自己学会用 FGSP（比 0.15 稳很多）
+
+        # warmup：强烈建议开（避免前期抬分、框数暴涨）
+        FGSP_BETA_WARMUP_STEPS: 8000        # 你 batch_size/iter 不同时可微调：6k~12k
+
+        # norm-match：对齐 FGSP 与 baseline 的幅值（稳）
+        FGSP_NORM_MATCH: True
+        FGSP_NORM_CLAMP: 10.0
 
         NMS_CONFIG:
             TRAIN:
@@ -254,7 +284,7 @@ MODEL:
 
     POST_PROCESSING:
         RECALL_THRESH_LIST: [0.3, 0.5, 0.7]
-        SCORE_THRESH: 0.0
+        SCORE_THRESH: 0.7
         OUTPUT_RAW_SCORE: False
 
         EVAL_METRIC: kitti
@@ -268,22 +298,22 @@ MODEL:
 
 
 OPTIMIZATION:
-    BATCH_SIZE_PER_GPU: 2
-    NUM_EPOCHS: 80
+    BATCH_SIZE_PER_GPU: 4
+    NUM_EPOCHS: 120
 
     OPTIMIZER: adam_onecycle
     LR: 0.01
     WEIGHT_DECAY: 0.01
     MOMENTUM: 0.9
 
-    MOMS: [0.95, 0.85]
+    MOMS: [ 0.95, 0.85 ]
     PCT_START: 0.4
     DIV_FACTOR: 10
-    DECAY_STEP_LIST: [35, 45]
+    DECAY_STEP_LIST: [52, 68]
     LR_DECAY: 0.1
     LR_CLIP: 0.0000001
 
-    LR_WARMUP: False
+    LR_WARMUP: True
     WARMUP_EPOCH: 1
 
     GRAD_NORM_CLIP: 10

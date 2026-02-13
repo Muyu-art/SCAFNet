@@ -16,11 +16,17 @@ from .fgsp_module import FGSPRoIEncoder, ForegroundScoreModule  # FGSP
 
 class SCAFNet_FGSP(CascadeRoIHeadTemplate):
     """
-    SCAFNet + 可选 FGSP RoI 表征
-    - USE_FGSP = False: 原始 CasA-V
-    - USE_FGSP = True, FGSP_MODE = 'score_only': RoI-grid 前景重加权
+    CasA-V + FGSP (stable, minimal necessary changes)
+
+    - USE_FGSP = False: original CasA-V
+    - USE_FGSP = True, FGSP_MODE = 'score_only': roi-grid foreground reweight
     - USE_FGSP = True, FGSP_MODE in {'full','support_no_ms','random_sp'}:
-        FGSP RoI重构 +（可选）多尺度聚合 + 残差/门控融合
+        FGSP RoI representation + controlled residual fusion (LN + norm-match + beta gate + warmup)
+
+    Stability changes (key):
+      - beta gate: sigmoid(beta_logit) * beta_max (instead of free nn.Parameter beta)
+      - beta warmup: internal fgsp_global_step (no train.py changes)
+      - optional norm-match: align fgsp magnitude to baseline
     """
     def __init__(self, input_channels, model_cfg, point_cloud_range=None, voxel_size=None,
                  num_frames=1, num_class=1, **kwargs):
@@ -33,7 +39,7 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
 
         self.stages = model_cfg.STAGES
 
-        # ====== RoI-grid 多源特征池化 ======
+        # ====== RoI-grid multi-source pooling ======
         c_out = 0
         self.roi_grid_pool_layers = nn.ModuleList()
         for src_name in self.pool_cfg.FEATURES_SOURCE:
@@ -55,7 +61,7 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
         self.roi_unit_channels = c_out
         pre_channel = GRID_SIZE * GRID_SIZE * GRID_SIZE * c_out
 
-        # ====== shared_fc（只建一个，所有 stage 共享） ======
+        # ====== shared_fc (build once, share for all stages) ======
         self.shared_fc_layers = nn.ModuleList()
         for i in range(self.stages):
             pre_channel = GRID_SIZE * GRID_SIZE * GRID_SIZE * c_out
@@ -74,7 +80,7 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
 
         self.shared_channel = pre_channel  # C_shared
 
-        # ====== 分类 / 回归 head（共享） ======
+        # ====== cls / reg heads (share) ======
         self.cls_layers = nn.ModuleList()
         self.reg_layers = nn.ModuleList()
         for i in range(self.stages):
@@ -107,7 +113,7 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
             self.reg_layers.append(nn.Sequential(*reg_fc_list))
             break
 
-        # ====== Part 分支（不变） ======
+        # ====== Part branch (unchanged) ======
         self.grid_offsets = self.model_cfg.PART.GRID_OFFSETS
         self.featmap_stride = self.model_cfg.PART.FEATMAP_STRIDE
         part_inchannel = self.model_cfg.PART.IN_CHANNEL
@@ -122,26 +128,36 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
         self.gen_grid_fn = partial(gen_sample_grid, grid_offsets=self.grid_offsets,
                                    spatial_scale=1 / self.featmap_stride)
 
-        # ====== Cross-Attention（不变） ======
+        # ====== Cross-Attention (unchanged) ======
         self.cross_attention_layers = nn.ModuleList()
         for i in range(self.stages):
             self.cross_attention_layers.append(CrossAttention(self.shared_channel))
 
-        # ====== FGSP 开关与模块 ======
-        self.use_fgsp = getattr(self.model_cfg, 'USE_FGSP', False)
-        self.fgsp_mode = getattr(self.model_cfg, 'FGSP_MODE', 'full')  # full/support_no_ms/random_sp/score_only
+        # ====== FGSP switches / modules ======
+        self.use_fgsp = bool(getattr(self.model_cfg, 'USE_FGSP', False))
+        self.fgsp_mode = str(getattr(self.model_cfg, 'FGSP_MODE', 'full'))  # full/support_no_ms/random_sp/score_only
 
-        self.geo_scale = getattr(self.model_cfg, 'FGSP_GEO_SCALE', 0.5)            # γ
-        self.score_only_lambda = getattr(self.model_cfg, 'FGSP_SCORE_SCALE', 0.5) # score_only 的 λ
+        self.geo_scale = float(getattr(self.model_cfg, 'FGSP_GEO_SCALE', 0.0))               # gamma (recommend 0.0 first)
+        self.score_only_lambda = float(getattr(self.model_cfg, 'FGSP_SCORE_SCALE', 0.5))     # lambda for score_only
 
-        # ====== ✅ 修改 1：beta 参数化到 (0,1)，避免训练中跑成负/过大导致漂移 ======
-        self.fgsp_beta_init = float(getattr(self.model_cfg, 'FGSP_BETA_INIT', 0.2))
-        beta0 = min(max(self.fgsp_beta_init, 1e-4), 1.0 - 1e-4)  # clamp (0,1)
-        beta_logit0 = torch.log(torch.tensor(beta0 / (1.0 - beta0), dtype=torch.float32))
-        self.fgsp_beta_logit = nn.Parameter(beta_logit0)
+        # ====== stable fusion: beta gate + warmup + norm-match ======
+        self.fgsp_beta_max = float(getattr(self.model_cfg, 'FGSP_BETA_MAX', 0.15))
+        beta_init = float(getattr(self.model_cfg, 'FGSP_BETA_INIT', 0.03))
+        beta_init = max(min(beta_init, self.fgsp_beta_max - 1e-6), 1e-6)
+
+        p = float(beta_init / (self.fgsp_beta_max + 1e-12))
+        logit = np.log(p / (1.0 - p + 1e-12) + 1e-12)
+        self.fgsp_beta_logit = nn.Parameter(torch.tensor(logit, dtype=torch.float32))
+
+        self.fgsp_beta_warmup_steps = int(getattr(self.model_cfg, 'FGSP_BETA_WARMUP_STEPS', 0))
+        self.register_buffer('fgsp_global_step', torch.zeros((), dtype=torch.long), persistent=True)
 
         self.use_fgsp_gate = bool(getattr(self.model_cfg, 'FGSP_USE_GATE', True))
         self.fgsp_ln = nn.LayerNorm(self.shared_channel)
+
+        self.fgsp_norm_match = bool(getattr(self.model_cfg, 'FGSP_NORM_MATCH', True))
+        self.fgsp_norm_clamp = float(getattr(self.model_cfg, 'FGSP_NORM_CLAMP', 10.0))
+        self.fgsp_eps = 1e-6
 
         if self.use_fgsp_gate:
             self.fgsp_gate = nn.Sequential(
@@ -153,29 +169,7 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
         else:
             self.fgsp_gate = None
 
-        # ====== ✅ 修改 2：按类别分流（Cyclist 走 baseline，不注入 FGSP） ======
-        self.fgsp_route_by_class = bool(getattr(self.model_cfg, 'FGSP_ROUTE_BY_CLASS', False))
-        # 推荐你在 yaml 里直接写 label：例如 Cyclist=3 => [3]
-        self.fgsp_route_baseline_labels = getattr(self.model_cfg, 'FGSP_ROUTE_BASELINE_LABELS', None)
-
-        # 兼容：如果你不想写 label，也可以写名字（不可靠，除非你确认能拿到 class_names）
-        self.fgsp_route_baseline_classes = getattr(self.model_cfg, 'FGSP_ROUTE_BASELINE_CLASSES', None)
-
-        if self.fgsp_route_baseline_labels is None:
-            # 兜底：仅当用户写了名字且包含 Cyclist，则默认按 KITTI 常见顺序 Cyclist=3
-            labels = []
-            if isinstance(self.fgsp_route_baseline_classes, (list, tuple)):
-                for n in self.fgsp_route_baseline_classes:
-                    if isinstance(n, str) and n.lower() in ['cyclist', 'cyc']:
-                        labels.append(3)
-                    if isinstance(n, str) and n.lower() in ['car']:
-                        labels.append(1)
-                    if isinstance(n, str) and n.lower() in ['pedestrian', 'ped']:
-                        labels.append(2)
-            self.fgsp_route_baseline_labels = labels if len(labels) > 0 else []
-
         if self.use_fgsp:
-            # score_only 用的评分器（几何分支会用到归一化坐标）
             self.fg_scorer = ForegroundScoreModule(
                 feat_channels=self.roi_unit_channels,
                 geo_scale=self.geo_scale,
@@ -183,21 +177,22 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
             )
 
             if self.fgsp_mode != 'score_only':
-                use_multi_radius = self.fgsp_mode in ['full', 'random_sp']
+                use_multi_radius = (self.fgsp_mode in ['full', 'random_sp'])
                 select_with_score = (self.fgsp_mode != 'random_sp')
 
                 self.fgsp_encoder = FGSPRoIEncoder(
                     feat_channels=self.roi_unit_channels,
-                    num_support_points=getattr(self.model_cfg, 'FGSP_NUM_SUPPORT', 8),
-                    radii=getattr(self.model_cfg, 'FGSP_RADII', [0.4, 0.8, 1.2]),
+                    num_support_points=int(getattr(self.model_cfg, 'FGSP_NUM_SUPPORT', 8)),
+                    radii=getattr(self.model_cfg, 'FGSP_RADII', [0.5]),
                     out_channels=self.shared_channel,
                     use_multi_radius=use_multi_radius,
-                    use_softmax_weight=getattr(self.model_cfg, 'FGSP_USE_SOFTMAX_WEIGHT', False),
+                    use_softmax_weight=bool(getattr(self.model_cfg, 'FGSP_USE_SOFTMAX_WEIGHT', False)),
                     select_with_score=select_with_score,
                     geo_scale=self.geo_scale,
                     score_scale=float(getattr(self.model_cfg, 'FGSP_SCORER_SCORE_TEMP', 1.0)),
                     topk_neighbors=int(getattr(self.model_cfg, 'FGSP_TOPK_NEI', 16)),
                     residual_scale=float(getattr(self.model_cfg, 'FGSP_MS_RESIDUAL', 0.3)),
+                    use_score_weight=bool(getattr(self.model_cfg, 'FGSP_USE_SCORE_WEIGHT', True)),
                 )
             else:
                 self.fgsp_encoder = None
@@ -206,6 +201,16 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
             self.fgsp_encoder = None
 
         self.init_weights()
+
+    def _get_beta(self) -> torch.Tensor:
+        return torch.sigmoid(self.fgsp_beta_logit) * self.fgsp_beta_max
+
+    def _get_warmup_scale(self) -> float:
+        if self.fgsp_beta_warmup_steps <= 0:
+            return 1.0
+        cur_step = int(self.fgsp_global_step.item())
+        cur_step = max(min(cur_step, self.fgsp_beta_warmup_steps), 0)
+        return float(cur_step) / float(self.fgsp_beta_warmup_steps)
 
     def init_weights(self):
         init_func = nn.init.xavier_normal_
@@ -249,7 +254,7 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
     def roi_grid_pool(self, batch_dict):
         """
         RoI-grid multi-scale pooling
-        返回: ms_pooled_features: (B*N, G, C_out)
+        Returns: ms_pooled_features: (B*N, G, C_out)
         """
         rois = batch_dict['rois'].clone()
         batch_size = batch_dict['batch_size']
@@ -376,13 +381,13 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
     @staticmethod
     def normalize_local_grid(local_grid_xyz, rois_flat, eps=1e-6):
         """
-        ✅ 把 local RoI grid 坐标归一化到 [-1,1]（按 RoI size/2）
-        local_grid_xyz: [B*N, G, 3] (meters)
+        Normalize local RoI grid coords to ~[-1,1] by (size/2).
+        local_grid_xyz: [B*N, G, 3] meters
         rois_flat:      [B*N, 7]
         """
         size = rois_flat[:, 3:6].clamp(min=eps)  # [B*N,3]
         denom = (size / 2.0).unsqueeze(1)        # [B*N,1,3]
-        return local_grid_xyz / denom            # approx [-1,1]
+        return local_grid_xyz / denom
 
     def get_gts_rois(self, batch_dict):
         rois = batch_dict['rois']
@@ -405,6 +410,10 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
         targets_dict = self.proposal_layer(
             batch_dict, nms_config=self.model_cfg.NMS_CONFIG['TRAIN' if self.training else 'TEST']
         )
+
+        # ✅ warmup guaranteed: +1 per iter (not per stage)
+        if self.training and self.use_fgsp and (self.fgsp_beta_warmup_steps > 0):
+            self.fgsp_global_step += 1
 
         feat_2d = batch_dict['st_features_2d']
         parts_feat = self.conv_part(feat_2d)
@@ -430,15 +439,15 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
             C = self.roi_unit_channels
             assert batch_size_rcnn == batch_size * num_rois
 
-            # ===== Part 分支（不改） =====
+            # ===== Part branch (unchanged) =====
             part_scores = self.roi_part_pool(batch_dict, parts_feat)  # (B*N,1)
 
-            # ===== Baseline shared_fc（始终计算） =====
+            # ===== Baseline shared_fc (always compute) =====
             pooled_features = pooled_features.view(batch_size_rcnn, G, C)
             roi_feats_flat = pooled_features.view(batch_size_rcnn, -1)  # (B*N, G*C)
             shared_vec_base = self.shared_fc_layers[0](roi_feats_flat)  # (B*N, C_shared)
 
-            # ===== FGSP 分支（可选） =====
+            # ===== FGSP branch (optional) =====
             if (not self.use_fgsp):
                 shared_vec = shared_vec_base
             else:
@@ -448,50 +457,48 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
                 local_roi_grid = self.get_dense_grid_points(
                     rois_flat, batch_size_rcnn, self.grid_size
                 )  # [B*N,G,3] meters (local)
-                local_roi_grid_norm = self.normalize_local_grid(local_roi_grid, rois_flat)  # ✅ [-1,1]
+                local_roi_grid_norm = self.normalize_local_grid(local_roi_grid, rois_flat)  # [-1,1]
                 roi_grid_xyz = local_roi_grid_norm.view(batch_size, num_rois, G, 3)  # [B,M,G,3]
 
                 if self.fgsp_mode == 'score_only':
                     fg_scores = self.fg_scorer(roi_feats, roi_grid_xyz)  # [B,M,G,1]
-
-                    # 温和重加权 + clamp，避免尺度过激导致 cls 分数整体上移
                     scale = (1.0 + self.score_only_lambda * (fg_scores - 0.5))
                     scale = torch.clamp(scale, 0.5, 1.5)
                     roi_feats_weighted = roi_feats * scale
 
                     roi_feats_weighted_flat = roi_feats_weighted.view(batch_size_rcnn, -1)
                     shared_vec = self.shared_fc_layers[0](roi_feats_weighted_flat)
-
                 else:
-                    roi_repr, aux = self.fgsp_encoder(roi_feats, roi_grid_xyz)  # [B,M,C_shared]
+                    roi_repr, _aux = self.fgsp_encoder(roi_feats, roi_grid_xyz)  # [B,M,C_shared]
                     fgsp_vec = roi_repr.view(batch_size_rcnn, self.shared_channel)
 
-                    # ✅ LayerNorm 稳定幅值
+                    # 1) LN
                     base_n = self.fgsp_ln(shared_vec_base)
                     fgsp_n = self.fgsp_ln(fgsp_vec)
 
-                    # ✅ beta in (0,1)
-                    beta = torch.sigmoid(self.fgsp_beta_logit)
+                    # 2) optional norm-match (align fgsp magnitude to baseline)
+                    if self.fgsp_norm_match:
+                        with torch.no_grad():
+                            bn = base_n.detach()
+                            fn = fgsp_n.detach()
+                            bn_norm = bn.norm(p=2, dim=1, keepdim=True).mean()
+                            fn_norm = fn.norm(p=2, dim=1, keepdim=True).mean()
+                            ratio = (bn_norm / (fn_norm + self.fgsp_eps)).clamp(
+                                1.0 / self.fgsp_norm_clamp, self.fgsp_norm_clamp
+                            )
+                        fgsp_vec = fgsp_vec * ratio
 
-                    # ✅ 门控融合（默认开启）
+                    # 3) beta gate + warmup
+                    beta = self._get_beta()
+                    warm = self._get_warmup_scale() if self.training else 1.0
+                    beta = beta * float(warm)  # scalar tensor
+
+                    # 4) optional feature gate
                     if self.fgsp_gate is not None:
                         gate = self.fgsp_gate(torch.cat([base_n, fgsp_n], dim=-1))  # [B*N,C]
-                        shared_vec = shared_vec_base + beta * gate * fgsp_n
+                        shared_vec = shared_vec_base + beta * gate * fgsp_vec
                     else:
-                        shared_vec = shared_vec_base + beta * fgsp_n
-
-                # ===== ✅ 类别分流：baseline 类别直接用 shared_vec_base（训练/测试都生效）=====
-                # 说明：测试阶段 batch_dict['roi_labels'] 通常由 proposal_layer 提供；训练阶段由 assign_targets 提供
-                if self.fgsp_route_by_class and len(self.fgsp_route_baseline_labels) > 0:
-                    roi_labels = batch_dict.get('roi_labels', None)
-                    if roi_labels is not None:
-                        labels_flat = roi_labels.view(-1).long()  # [B*N]
-                        mask_base = torch.zeros_like(labels_flat, dtype=torch.bool)
-                        for lb in self.fgsp_route_baseline_labels:
-                            mask_base |= (labels_flat == int(lb))
-                        if mask_base.any():
-                            print('[FGSP route] baseline rois:', mask_base.sum().item())
-                            shared_vec = torch.where(mask_base.unsqueeze(-1), shared_vec_base, shared_vec)
+                        shared_vec = shared_vec_base + beta * fgsp_vec
 
             # ===== CasA cross-attn + cls/reg =====
             shared_features = shared_vec.unsqueeze(0)  # [1,B*N,C_shared]
@@ -505,7 +512,7 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
             rcnn_cls = self.cls_layers[0](cur_feat)
             rcnn_reg = self.reg_layers[0](cur_feat)
 
-            # part 分支相加（保持一致）
+            # part score add (unchanged)
             rcnn_cls = part_scores + rcnn_cls
 
             batch_cls_preds, batch_box_preds = self.generate_predicted_boxes(
@@ -521,7 +528,7 @@ class SCAFNet_FGSP(CascadeRoIHeadTemplate):
                 targets_dict['rcnn_reg'] = rcnn_reg
                 self.forward_ret_dict['targets_dict' + stage_id] = targets_dict
 
-            # 级联：当前 stage 输出作为下一 stage RoI
+            # cascade: current stage outputs as next stage RoIs
             batch_dict['rois'] = batch_box_preds
             batch_dict['roi_scores'] = batch_cls_preds.squeeze(-1)
 
