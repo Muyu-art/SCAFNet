@@ -13,13 +13,25 @@ def build_network(model_cfg, num_class, dataset):
     return model
 
 
+# def load_data_to_gpu(batch_dict):
+#     for key, val in batch_dict.items():
+#         if not isinstance(val, np.ndarray):
+#             continue
+#         if key in ['frame_id', 'metadata', 'calib', 'image_shape', 'seq_id']:
+#             continue
+#         batch_dict[key] = torch.from_numpy(val).float().cuda()
+
 def load_data_to_gpu(batch_dict):
+
     for key, val in batch_dict.items():
-        if not isinstance(val, np.ndarray):
-            continue
-        if key in ['frame_id', 'metadata', 'calib', 'image_shape', 'seq_id']:
-            continue
-        batch_dict[key] = torch.from_numpy(val).float().cuda()
+        if isinstance(val, np.ndarray):
+            # 只处理数值数组：bool/int/uint/float
+            if val.dtype.kind not in ("b", "i", "u", "f"):
+                continue
+            batch_dict[key] = torch.from_numpy(val).float().cuda(non_blocking=True)
+
+        elif isinstance(val, torch.Tensor):
+            batch_dict[key] = val.float().cuda(non_blocking=True)
 
 
 def model_fn_decorator():

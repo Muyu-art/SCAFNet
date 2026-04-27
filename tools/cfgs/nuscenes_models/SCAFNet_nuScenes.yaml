@@ -1,15 +1,9 @@
-# =========================
-# SCAFNet_nuScenes.yaml
-# (LiDAR + Camera multimodal) - FINAL TRAIN VERSION
-# =========================
-
-CLASS_NAMES: ['car','truck','construction_vehicle','bus','trailer',
-              'barrier','motorcycle','bicycle','pedestrian','traffic_cone']
+CLASS_NAMES: ['car', 'truck', 'construction_vehicle', 'bus', 'trailer',
+              'barrier', 'motorcycle', 'bicycle', 'pedestrian', 'traffic_cone']
 
 DATA_CONFIG:
     _BASE_CONFIG_: cfgs/dataset_configs/nuscenes_dataset.yaml
-
-    POINT_CLOUD_RANGE: [-54.0, -54.0, -5.0, 54.0, 54.0, 3.0]
+    GET_ITEM_LIST: ["points", "images"]
 
     CAMERA_CONFIG:
         USE_CAMERA: True
@@ -18,46 +12,6 @@ DATA_CONFIG:
             RESIZE_LIM_TRAIN: [0.38, 0.55]
             RESIZE_LIM_TEST: [0.48, 0.48]
 
-    # ⚠️ 关键：不要把 base 里的 gt_sampling 覆盖掉
-    # 显式保留 gt_sampling，并追加你需要的其他增强
-    DATA_AUGMENTOR:
-        DISABLE_AUG_LIST: ['placeholder']
-        AUG_CONFIG_LIST:
-            - NAME: gt_sampling
-              DB_INFO_PATH:
-                  - nuscenes_dbinfos_10sweeps_withvelo.pkl
-              PREPARE: {
-                 filter_by_min_points: [
-                     'car:5','truck:5', 'construction_vehicle:5', 'bus:5', 'trailer:5',
-                     'barrier:5', 'motorcycle:5', 'bicycle:5', 'pedestrian:5', 'traffic_cone:5'
-                 ],
-              }
-              SAMPLE_GROUPS: [
-                  'car:2','truck:3', 'construction_vehicle:7', 'bus:4', 'trailer:6',
-                  'barrier:2', 'motorcycle:6', 'bicycle:6', 'pedestrian:2', 'traffic_cone:2'
-              ]
-              NUM_POINT_FEATURES: 5
-              DATABASE_WITH_FAKELIDAR: False
-              REMOVE_EXTRA_WIDTH: [0.0, 0.0, 0.0]
-              LIMIT_WHOLE_SCENE: True
-
-            - NAME: random_world_flip
-              ALONG_AXIS_LIST: ['x', 'y']
-
-            - NAME: random_world_rotation
-              WORLD_ROT_ANGLE: [-0.78539816, 0.78539816]
-
-            - NAME: random_world_scaling
-              WORLD_SCALE_RANGE: [0.9, 1.1]
-
-            - NAME: random_world_translation
-              NOISE_TRANSLATE_STD: [0.5, 0.5, 0.5]
-
-            - NAME: imgaug
-              ROT_LIM: [-5.4, 5.4]
-              RAND_FLIP: True
-
-    # ✅ 统一把图像处理链放在 DATA_CONFIG.DATA_PROCESSOR（避免与 MODEL.DATA_PROCESSOR 同名覆盖）
     DATA_PROCESSOR:
         - NAME: mask_points_and_boxes_outside_range
           REMOVE_OUTSIDE_BOXES: True
@@ -72,23 +26,19 @@ DATA_CONFIG:
           VOXEL_SIZE: [0.075, 0.075, 0.2]
           MAX_POINTS_PER_VOXEL: 10
           MAX_NUMBER_OF_VOXELS: {
-            'train': 120000,
-            'test': 160000
+            'train': 60000,
+            'test': 60000
           }
-
-        # --- image pipeline ---
-        - NAME: image_calibrate
-
-        - NAME: image_normalize
-          mean: [0.485, 0.456, 0.406]
-          std:  [0.229, 0.224, 0.225]
 
         - NAME: process_image_features
           IMAGE_SIZE: [256, 704]
+          IMAGE_NORM: True
+          IMAGE_STD_NORM: True
+          IMAGE_MEAN: [0.485, 0.456, 0.406]
+          IMAGE_STD: [0.229, 0.224, 0.225]
 
     EVAL_CONFIG:
         SAVE_EVAL_RESULTS: True
-
 
 MODEL:
     NAME: SCAFNet
@@ -101,13 +51,13 @@ MODEL:
     VFE:
         NAME: MeanVFE
 
-    IMAGE_BACKBONE:
-        NAME: ImageBackbone
-
     IMAGE_FPN:
         NAME: 'ImageFPN'
         IN_CHANNELS_LIST: [64, 128, 256, 512]
         OUT_CHANNELS: 128
+
+    IMAGE_BACKBONE:
+        NAME: ImageBackbone
 
     CMME:
         NAME: 'CascadeMultiModalEnhancer'
@@ -122,15 +72,15 @@ MODEL:
         ATTN_RATIO: 16
         FUSE_MODE: 'concat'
 
+    MAP_TO_BEV:
+        NAME: HeightCompression
+        NUM_BEV_FEATURES: 64
+
     BACKBONE_3D:
         NAME: VoxelBackBone8x
         NUM_FILTERS: [16, 32, 64, 64]
         RETURN_NUM_FEATURES_AS_DICT: True
         OUT_FEATURES: 64
-
-    MAP_TO_BEV:
-        NAME: HeightCompression
-        NUM_BEV_FEATURES: 256
 
     BACKBONE_2D:
         NAME: BaseBEVBackbone
@@ -140,7 +90,6 @@ MODEL:
         UPSAMPLE_STRIDES: [1, 2]
         NUM_UPSAMPLE_FILTERS: [128, 128]
         INPUT_CHANNELS: 256
-
 
     DENSE_HEAD:
         NAME: AnchorHeadSingle
@@ -152,34 +101,124 @@ MODEL:
         NUM_DIR_BINS: 2
 
         ANCHOR_GENERATOR_CONFIG: [
-            {'class_name':'car','anchor_sizes':[[4.7,2.0,1.7]],'anchor_rotations':[0,1.57],'anchor_bottom_heights':[-1.0],'align_center':False,'feature_map_stride':8,'matched_threshold':0.6,'unmatched_threshold':0.45},
-            {'class_name':'truck','anchor_sizes':[[10.0,2.6,3.2]],'anchor_rotations':[0,1.57],'anchor_bottom_heights':[-1.6],'align_center':False,'feature_map_stride':8,'matched_threshold':0.55,'unmatched_threshold':0.4},
-            {'class_name':'construction_vehicle','anchor_sizes':[[6.5,2.6,2.8]],'anchor_rotations':[0,1.57],'anchor_bottom_heights':[-1.4],'align_center':False,'feature_map_stride':8,'matched_threshold':0.55,'unmatched_threshold':0.4},
-            {'class_name':'bus','anchor_sizes':[[12.0,2.8,3.3]],'anchor_rotations':[0,1.57],'anchor_bottom_heights':[-1.7],'align_center':False,'feature_map_stride':8,'matched_threshold':0.55,'unmatched_threshold':0.4},
-            {'class_name':'trailer','anchor_sizes':[[12.5,2.9,3.3]],'anchor_rotations':[0,1.57],'anchor_bottom_heights':[-1.7],'align_center':False,'feature_map_stride':8,'matched_threshold':0.55,'unmatched_threshold':0.4},
-            {'class_name':'barrier','anchor_sizes':[[2.0,0.6,1.0]],'anchor_rotations':[0,1.57],'anchor_bottom_heights':[-0.5],'align_center':False,'feature_map_stride':8,'matched_threshold':0.5,'unmatched_threshold':0.35},
-            {'class_name':'motorcycle','anchor_sizes':[[2.2,0.9,1.6]],'anchor_rotations':[0,1.57],'anchor_bottom_heights':[-0.8],'align_center':False,'feature_map_stride':8,'matched_threshold':0.5,'unmatched_threshold':0.35},
-            {'class_name':'bicycle','anchor_sizes':[[1.8,0.7,1.5]],'anchor_rotations':[0,1.57],'anchor_bottom_heights':[-0.75],'align_center':False,'feature_map_stride':8,'matched_threshold':0.5,'unmatched_threshold':0.35},
-            {'class_name':'pedestrian','anchor_sizes':[[0.8,0.8,1.7]],'anchor_rotations':[0,1.57],'anchor_bottom_heights':[-0.85],'align_center':False,'feature_map_stride':8,'matched_threshold':0.5,'unmatched_threshold':0.35},
-            {'class_name':'traffic_cone','anchor_sizes':[[0.6,0.6,1.0]],'anchor_rotations':[0,1.57],'anchor_bottom_heights':[-0.5],'align_center':False,'feature_map_stride':8,'matched_threshold':0.45,'unmatched_threshold':0.3}
+            {
+                'class_name': 'car',
+                'anchor_sizes': [[4.63, 1.97, 1.74]],
+                'anchor_rotations': [0, 1.57],
+                'anchor_bottom_heights': [-0.95],
+                'align_center': False,
+                'feature_map_stride': 8,
+                'matched_threshold': 0.6,
+                'unmatched_threshold': 0.45
+            },
+            {
+                'class_name': 'truck',
+                'anchor_sizes': [[6.93, 2.51, 2.84]],
+                'anchor_rotations': [0, 1.57],
+                'anchor_bottom_heights': [-1.3],
+                'align_center': False,
+                'feature_map_stride': 8,
+                'matched_threshold': 0.55,
+                'unmatched_threshold': 0.4
+            },
+            {
+                'class_name': 'construction_vehicle',
+                'anchor_sizes': [[6.37, 2.85, 3.19]],
+                'anchor_rotations': [0, 1.57],
+                'anchor_bottom_heights': [-1.55],
+                'align_center': False,
+                'feature_map_stride': 8,
+                'matched_threshold': 0.5,
+                'unmatched_threshold': 0.35
+            },
+            {
+                'class_name': 'bus',
+                'anchor_sizes': [[10.5, 2.94, 3.47]],
+                'anchor_rotations': [0, 1.57],
+                'anchor_bottom_heights': [-1.55],
+                'align_center': False,
+                'feature_map_stride': 8,
+                'matched_threshold': 0.55,
+                'unmatched_threshold': 0.4
+            },
+            {
+                'class_name': 'trailer',
+                'anchor_sizes': [[12.29, 2.90, 3.87]],
+                'anchor_rotations': [0, 1.57],
+                'anchor_bottom_heights': [-1.6],
+                'align_center': False,
+                'feature_map_stride': 8,
+                'matched_threshold': 0.5,
+                'unmatched_threshold': 0.35
+            },
+            {
+                'class_name': 'barrier',
+                'anchor_sizes': [[0.50, 2.53, 0.98]],
+                'anchor_rotations': [0, 1.57],
+                'anchor_bottom_heights': [-0.55],
+                'align_center': False,
+                'feature_map_stride': 8,
+                'matched_threshold': 0.5,
+                'unmatched_threshold': 0.35
+            },
+            {
+                'class_name': 'motorcycle',
+                'anchor_sizes': [[2.11, 0.77, 1.47]],
+                'anchor_rotations': [0, 1.57],
+                'anchor_bottom_heights': [-0.6],
+                'align_center': False,
+                'feature_map_stride': 8,
+                'matched_threshold': 0.5,
+                'unmatched_threshold': 0.35
+            },
+            {
+                'class_name': 'bicycle',
+                'anchor_sizes': [[1.70, 0.60, 1.28]],
+                'anchor_rotations': [0, 1.57],
+                'anchor_bottom_heights': [-0.6],
+                'align_center': False,
+                'feature_map_stride': 8,
+                'matched_threshold': 0.5,
+                'unmatched_threshold': 0.35
+            },
+            {
+                'class_name': 'pedestrian',
+                'anchor_sizes': [[0.73, 0.67, 1.77]],
+                'anchor_rotations': [0, 1.57],
+                'anchor_bottom_heights': [-0.9],
+                'align_center': False,
+                'feature_map_stride': 8,
+                'matched_threshold': 0.5,
+                'unmatched_threshold': 0.35
+            },
+            {
+                'class_name': 'traffic_cone',
+                'anchor_sizes': [[0.41, 0.41, 1.07]],
+                'anchor_rotations': [0, 1.57],
+                'anchor_bottom_heights': [-0.5],
+                'align_center': False,
+                'feature_map_stride': 8,
+                'matched_threshold': 0.5,
+                'unmatched_threshold': 0.35
+            }
         ]
 
         TARGET_ASSIGNER_CONFIG:
             NAME: AxisAlignedTargetAssigner
             POS_FRACTION: -1.0
-            SAMPLE_SIZE: 1024
+            SAMPLE_SIZE: 512
             NORM_BY_NUM_EXAMPLES: False
             MATCH_HEIGHT: False
             BOX_CODER: ResidualCoder
 
         LOSS_CONFIG:
             LOSS_WEIGHTS: {
-                'cls_weight': [1.0,1.0,1.0,1.0,1.0, 1.0,1.0,1.0,1.0,1.0],
+                'cls_weight': 1.0,
                 'loc_weight': 2.0,
                 'dir_weight': 0.2,
                 'iou_weight': 0.5,
                 'semantic_distill_weight': 0.5,
-                'code_weights': [1.0,1.0,1.0,1.0,1.0,1.0,1.0]
+                'code_weights': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
             }
 
     ROI_HEAD:
@@ -190,29 +229,31 @@ MODEL:
         PART:
             IN_CHANNEL: 256
             SIZE: 7
-            GRID_OFFSETS: [54., 54.]
-            FEATMAP_STRIDE: 0.6
+            GRID_OFFSETS: [0., 40.]
+            FEATMAP_STRIDE: 0.4
 
         SHARED_FC: [256, 256]
         CLS_FC: [256, 256]
         REG_FC: [256, 256]
         DP_RATIO: 0.3
 
+        USE_FGSP: False
+
         NMS_CONFIG:
             TRAIN:
                 NMS_TYPE: nms_gpu
                 MULTI_CLASSES_NMS: False
-                NMS_PRE_MAXSIZE: 4096
-                NMS_POST_MAXSIZE: 1024
+                NMS_PRE_MAXSIZE: 4000
+                NMS_POST_MAXSIZE: 512
                 NMS_THRESH: 0.8
             TEST:
                 NMS_TYPE: nms_gpu
                 MULTI_CLASSES_NMS: False
                 USE_FAST_NMS: True
                 SCORE_THRESH: 0.0
-                NMS_PRE_MAXSIZE: 4096
-                NMS_POST_MAXSIZE: 200
-                NMS_THRESH: 0.75
+                NMS_PRE_MAXSIZE: 4000
+                NMS_POST_MAXSIZE: 100
+                NMS_THRESH: 0.2
 
         ROI_GRID_POOL:
             FEATURES_SOURCE: ['x_conv3','x_conv4']
@@ -222,48 +263,48 @@ MODEL:
                 x_conv3:
                     MLPS: [[32, 32], [32, 32]]
                     QUERY_RANGES: [[2, 2, 2], [4, 4, 4]]
-                    POOL_RADIUS: [0.6, 1.2]
+                    POOL_RADIUS: [0.4, 0.8]
                     NSAMPLE: [16, 16]
                     POOL_METHOD: max_pool
                 x_conv4:
                     MLPS: [[32, 32], [32, 32]]
                     QUERY_RANGES: [[2, 2, 2], [4, 4, 4]]
-                    POOL_RADIUS: [1.2, 2.4]
+                    POOL_RADIUS: [0.8, 1.6]
                     NSAMPLE: [16, 16]
                     POOL_METHOD: max_pool
 
         TARGET_CONFIG:
             BOX_CODER: ResidualCoder
             STAGE0:
-                ROI_PER_IMAGE: 256
+                ROI_PER_IMAGE: 160
                 FG_RATIO: 0.5
                 SAMPLE_ROI_BY_EACH_CLASS: True
                 CLS_SCORE_TYPE: roi_iou_x
-                CLS_FG_THRESH: [0.75,0.70,0.70,0.70,0.70, 0.65,0.65,0.65,0.65,0.65]
-                CLS_BG_THRESH: [0.25,0.20,0.20,0.20,0.20, 0.15,0.15,0.15,0.15,0.15]
+                CLS_FG_THRESH: [ 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75 ]
+                CLS_BG_THRESH: [ 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25 ]
                 CLS_BG_THRESH_LO: 0.1
                 HARD_BG_RATIO: 0.8
-                REG_FG_THRESH: [0.50,0.45,0.45,0.45,0.45, 0.40,0.40,0.40,0.40,0.40]
+                REG_FG_THRESH: [ 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ]
             STAGE1:
-                ROI_PER_IMAGE: 256
+                ROI_PER_IMAGE: 160
                 FG_RATIO: 0.5
                 SAMPLE_ROI_BY_EACH_CLASS: True
                 CLS_SCORE_TYPE: roi_iou_x
-                CLS_FG_THRESH: [0.75,0.70,0.70,0.70,0.70, 0.65,0.65,0.65,0.65,0.65]
-                CLS_BG_THRESH: [0.25,0.20,0.20,0.20,0.20, 0.15,0.15,0.15,0.15,0.15]
+                CLS_FG_THRESH: [ 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75 ]
+                CLS_BG_THRESH: [ 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25 ]
                 CLS_BG_THRESH_LO: 0.1
                 HARD_BG_RATIO: 0.8
-                REG_FG_THRESH: [0.55,0.50,0.50,0.50,0.50, 0.45,0.45,0.45,0.45,0.45]
+                REG_FG_THRESH: [ 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55 ]
             STAGE2:
-                ROI_PER_IMAGE: 256
+                ROI_PER_IMAGE: 160
                 FG_RATIO: 0.5
                 SAMPLE_ROI_BY_EACH_CLASS: True
                 CLS_SCORE_TYPE: roi_iou_x
-                CLS_FG_THRESH: [0.75,0.70,0.70,0.70,0.70, 0.65,0.65,0.65,0.65,0.65]
-                CLS_BG_THRESH: [0.25,0.20,0.20,0.20,0.20, 0.15,0.15,0.15,0.15,0.15]
+                CLS_FG_THRESH: [ 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75 ]
+                CLS_BG_THRESH: [ 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25 ]
                 CLS_BG_THRESH_LO: 0.1
                 HARD_BG_RATIO: 0.8
-                REG_FG_THRESH: [0.60,0.55,0.55,0.55,0.55, 0.50,0.50,0.50,0.50,0.50]
+                REG_FG_THRESH: [ 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6 ]
 
         LOSS_CONFIG:
             CLS_LOSS: BinaryCrossEntropy
@@ -275,14 +316,13 @@ MODEL:
                 'rcnn_reg_weight': 1.0,
                 'rcnn_corner_weight': 1.0,
                 'rcnn_iou3d_weight': 1.0,
-                'code_weights': [1.0,1.0,1.0,1.0,1.0,1.0,1.0]
+                'code_weights': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
             }
 
     POST_PROCESSING:
         RECALL_THRESH_LIST: [0.3, 0.5, 0.7]
-        SCORE_THRESH: 0.0
+        SCORE_THRESH: 0.05
         OUTPUT_RAW_SCORE: False
-
         EVAL_METRIC: nuscenes
 
         NMS_CONFIG:
@@ -290,29 +330,25 @@ MODEL:
             NMS_TYPE: nms_gpu
             NMS_THRESH: 0.2
             NMS_PRE_MAXSIZE: 4096
-            NMS_POST_MAXSIZE: 500
-
+            NMS_POST_MAXSIZE: 150
 
 OPTIMIZATION:
     BATCH_SIZE_PER_GPU: 2
-    # ✅ 多模态最终训练：建议 36（比单模态更充分）
-    NUM_EPOCHS: 36
+    NUM_EPOCHS: 6
 
     OPTIMIZER: adam_onecycle
-    LR: 0.003
+    LR: 0.008
     WEIGHT_DECAY: 0.01
     MOMENTUM: 0.9
 
     MOMS: [0.95, 0.85]
     PCT_START: 0.4
     DIV_FACTOR: 10
-
-    # ✅ onecycle 的衰减点按总 epoch 重设
-    DECAY_STEP_LIST: [18, 30]
+    DECAY_STEP_LIST: [52, 68]
     LR_DECAY: 0.1
     LR_CLIP: 0.0000001
 
-    LR_WARMUP: False
+    LR_WARMUP: True
     WARMUP_EPOCH: 1
 
     GRAD_NORM_CLIP: 10

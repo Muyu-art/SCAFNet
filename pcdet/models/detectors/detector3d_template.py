@@ -1,5 +1,9 @@
 import os
 
+import pickle
+from pathlib import Path
+import numpy as np
+
 import torch
 import torch.nn as nn
 from ...utils.spconv_utils import find_all_spconv_keys
@@ -203,6 +207,8 @@ class Detector3DTemplate(nn.Module):
         Returns:
 
         """
+        self.dump_stage1_vis(batch_dict)
+
         post_process_cfg = self.model_cfg.POST_PROCESSING
         batch_size = batch_dict['batch_size']
         recall_dict = {}
@@ -425,3 +431,42 @@ class Detector3DTemplate(nn.Module):
         logger.info('==> Done')
 
         return it, epoch
+
+    def dump_stage1_vis(self, batch_dict):
+        dump_dir = os.environ.get('SCAF_STAGE1_DUMP_DIR', None)
+        if dump_dir is None:
+            return
+
+        dump_dir = Path(dump_dir)
+        dump_dir.mkdir(parents=True, exist_ok=True)
+
+        batch_size = batch_dict['batch_size']
+
+        for b in range(batch_size):
+            frame_id = batch_dict['frame_id'][b] if 'frame_id' in batch_dict else f'{b:06d}'
+
+            sample = {
+                'frame_id': frame_id,
+                'rois': None,
+                'roi_scores': None,
+                'gt_boxes': None,
+            }
+
+            if 'rois' in batch_dict and batch_dict['rois'] is not None:
+                rois = batch_dict['rois'][b]
+                if isinstance(rois, torch.Tensor):
+                    sample['rois'] = rois.detach().cpu().numpy()
+
+            if 'roi_scores' in batch_dict and batch_dict['roi_scores'] is not None:
+                roi_scores = batch_dict['roi_scores'][b]
+                if isinstance(roi_scores, torch.Tensor):
+                    sample['roi_scores'] = roi_scores.detach().cpu().numpy()
+
+            if 'gt_boxes' in batch_dict and batch_dict['gt_boxes'] is not None:
+                gt_boxes = batch_dict['gt_boxes'][b]
+                if isinstance(gt_boxes, torch.Tensor):
+                    sample['gt_boxes'] = gt_boxes.detach().cpu().numpy()
+
+            out_path = dump_dir / f'{frame_id}.pkl'
+            with open(out_path, 'wb') as f:
+                pickle.dump(sample, f)

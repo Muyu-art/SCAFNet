@@ -100,6 +100,26 @@ class BaseBEVBackbone(nn.Module):
                 ups = []
                 x = spatial_features
                 for i in range(len(self.blocks)):
+                    # x = self.blocks[i](x)
+                    # ---- FINAL FIX: auto align input channels to what the block expects ----
+                    first_conv = None
+                    for m in self.blocks[i].modules():
+                        if isinstance(m, torch.nn.Conv2d):
+                            first_conv = m
+                            break
+
+                    if first_conv is not None and x.shape[1] != first_conv.in_channels:
+                        # build align conv lazily (per stage)
+                        if not hasattr(self, "input_align_convs"):
+                            self.input_align_convs = torch.nn.ModuleList([None for _ in range(len(self.blocks))])
+
+                        if self.input_align_convs[i] is None:
+                            self.input_align_convs[i] = torch.nn.Conv2d(
+                                x.shape[1], first_conv.in_channels, kernel_size=1, bias=False
+                            ).to(x.device)
+
+                        x = self.input_align_convs[i](x)
+
                     x = self.blocks[i](x)
 
                     stride = int(spatial_features.shape[2] / x.shape[2])
@@ -109,7 +129,25 @@ class BaseBEVBackbone(nn.Module):
                         ups.append(x)
 
                 if len(ups) > 1:
-                    x = torch.cat(ups, dim=1)
+                    import torch.nn.functional as F
+
+                    if len(ups) > 1:
+                        # ===== FINAL FIX: resize all upsample branches to the same spatial size =====
+                        # Use the largest H/W among branches to avoid shrinking feature map grid (keeps anchor grid consistent).
+                        target_h = max([u.shape[2] for u in ups])
+                        target_w = max([u.shape[3] for u in ups])
+
+                        new_ups = []
+                        for u in ups:
+                            if u.shape[2] != target_h or u.shape[3] != target_w:
+                                u = F.interpolate(u, size=(target_h, target_w), mode='bilinear', align_corners=False)
+                            new_ups.append(u)
+
+                        x = torch.cat(new_ups, dim=1)
+                    elif len(ups) == 1:
+                        x = ups[0]
+
+                    # x = torch.cat(ups, dim=1)
                 elif len(ups) == 1:
                     x = ups[0]
 

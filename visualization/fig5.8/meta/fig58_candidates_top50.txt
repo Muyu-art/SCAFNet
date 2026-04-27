@@ -1,0 +1,305 @@
+Top candidates for Figure 5.8
+Model epochs: {'CasA-V': 72, 'SCAFNet': 119, 'CasA_V_fgsp_V1': 72, 'SCAF-FGSPNet': 113}
+Common frame_ids: 3768
+Candidates after filter: 2212
+
+====================================================================================================
+Rank 01 | frame_id=003047 | candidate_score=53.3601
+  [CasA-V] num_preds=11, class_set=['Pedestrian'], mean_score=0.8968, max_score=0.9941
+  [SCAFNet] num_preds=19, class_set=['Car', 'Pedestrian'], mean_score=0.8553, max_score=0.9906
+  [CasA_V_fgsp_V1] num_preds=17, class_set=['Car', 'Pedestrian'], mean_score=0.8502, max_score=0.9739
+  [SCAF-FGSPNet] num_preds=16, class_set=['Car', 'Pedestrian'], mean_score=0.8829, max_score=0.9971
+====================================================================================================
+Rank 02 | frame_id=004943 | candidate_score=43.6148
+  [CasA-V] num_preds=6, class_set=['Car'], mean_score=0.8905, max_score=0.9977
+  [SCAFNet] num_preds=9, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8820, max_score=0.9988
+  [CasA_V_fgsp_V1] num_preds=12, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8655, max_score=0.9983
+  [SCAF-FGSPNet] num_preds=10, class_set=['Car', 'Pedestrian'], mean_score=0.8578, max_score=0.9996
+====================================================================================================
+Rank 03 | frame_id=001046 | candidate_score=41.9658
+  [CasA-V] num_preds=18, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8744, max_score=0.9983
+  [SCAFNet] num_preds=16, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8765, max_score=0.9961
+  [CasA_V_fgsp_V1] num_preds=17, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8945, max_score=0.9944
+  [SCAF-FGSPNet] num_preds=12, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.9341, max_score=0.9988
+====================================================================================================
+Rank 04 | frame_id=000559 | candidate_score=40.5228
+  [CasA-V] num_preds=8, class_set=['Cyclist', 'Pedestrian'], mean_score=0.9526, max_score=0.9977
+  [SCAFNet] num_preds=11, class_set=['Cyclist', 'Pedestrian'], mean_score=0.9212, max_score=0.9989
+  [CasA_V_fgsp_V1] num_preds=15, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8704, max_score=0.9990
+  [SCAF-FGSPNet] num_preds=11, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.9615, max_score=0.9999
+====================================================================================================
+Rank 05 | frame_id=004095 | candidate_score=38.3290
+  [CasA-V] num_preds=8, class_set=['Car'], mean_score=0.9466, max_score=0.9984
+  [SCAFNet] num_preds=12, class_set=['Car'], mean_score=0.9175, max_score=0.9995
+  [CasA_V_fgsp_V1] num_preds=13, class_set=['Car'], mean_score=0.9041, max_score=0.9985
+  [SCAF-FGSPNet] num_preds=13, class_set=['Car'], mean_score=0.9149, max_score=0.9997
+====================================================================================================
+Rank 06 | frame_id=007420 | candidate_score=38.3084
+  [CasA-V] num_preds=12, class_set=['Car', 'Pedestrian'], mean_score=0.8804, max_score=0.9898
+  [SCAFNet] num_preds=16, class_set=['Car', 'Pedestrian'], mean_score=0.8459, max_score=0.9960
+  [CasA_V_fgsp_V1] num_preds=15, class_set=['Car', 'Pedestrian'], mean_score=0.8616, max_score=0.9908
+  [SCAF-FGSPNet] num_preds=10, class_set=['Car', 'Pedestrian'], mean_score=0.9090, max_score=0.9952
+====================================================================================================
+Rank 07 | frame_id=001267 | candidate_score=38.0994
+  [CasA-V] num_preds=9, class_set=['Pedestrian'], mean_score=0.8351, max_score=0.9545
+  [SCAFNet] num_preds=11, class_set=['Pedestrian'], mean_score=0.8507, max_score=0.9794
+  [CasA_V_fgsp_V1] num_preds=12, class_set=['Pedestrian'], mean_score=0.8628, max_score=0.9713
+  [SCAF-FGSPNet] num_preds=6, class_set=['Pedestrian'], mean_score=0.8199, max_score=0.9797
+====================================================================================================
+Rank 08 | frame_id=003159 | candidate_score=37.9564
+  [CasA-V] num_preds=6, class_set=['Car', 'Pedestrian'], mean_score=0.8518, max_score=0.9784
+  [SCAFNet] num_preds=11, class_set=['Car', 'Pedestrian'], mean_score=0.8355, max_score=0.9948
+  [CasA_V_fgsp_V1] num_preds=11, class_set=['Car', 'Pedestrian'], mean_score=0.8560, max_score=0.9935
+  [SCAF-FGSPNet] num_preds=10, class_set=['Car', 'Pedestrian'], mean_score=0.8796, max_score=0.9986
+====================================================================================================
+Rank 09 | frame_id=007266 | candidate_score=37.4031
+  [CasA-V] num_preds=6, class_set=['Car'], mean_score=0.9119, max_score=0.9965
+  [SCAFNet] num_preds=8, class_set=['Car'], mean_score=0.9379, max_score=0.9996
+  [CasA_V_fgsp_V1] num_preds=10, class_set=['Car'], mean_score=0.9087, max_score=0.9985
+  [SCAF-FGSPNet] num_preds=11, class_set=['Car'], mean_score=0.9019, max_score=0.9997
+====================================================================================================
+Rank 10 | frame_id=005878 | candidate_score=36.2216
+  [CasA-V] num_preds=2, class_set=['Car'], mean_score=0.9504, max_score=0.9960
+  [SCAFNet] num_preds=6, class_set=['Car', 'Pedestrian'], mean_score=0.8538, max_score=0.9968
+  [CasA_V_fgsp_V1] num_preds=5, class_set=['Car', 'Pedestrian'], mean_score=0.9012, max_score=0.9959
+  [SCAF-FGSPNet] num_preds=6, class_set=['Car', 'Pedestrian'], mean_score=0.8622, max_score=0.9986
+====================================================================================================
+Rank 11 | frame_id=002168 | candidate_score=35.3262
+  [CasA-V] num_preds=7, class_set=['Car'], mean_score=0.9572, max_score=0.9966
+  [SCAFNet] num_preds=11, class_set=['Car'], mean_score=0.9286, max_score=0.9992
+  [CasA_V_fgsp_V1] num_preds=12, class_set=['Car'], mean_score=0.9080, max_score=0.9983
+  [SCAF-FGSPNet] num_preds=11, class_set=['Car'], mean_score=0.9134, max_score=0.9997
+====================================================================================================
+Rank 12 | frame_id=006088 | candidate_score=34.5183
+  [CasA-V] num_preds=12, class_set=['Pedestrian'], mean_score=0.8762, max_score=0.9921
+  [SCAFNet] num_preds=12, class_set=['Cyclist', 'Pedestrian'], mean_score=0.9066, max_score=0.9957
+  [CasA_V_fgsp_V1] num_preds=15, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8732, max_score=0.9870
+  [SCAF-FGSPNet] num_preds=10, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.9144, max_score=0.9948
+====================================================================================================
+Rank 13 | frame_id=002546 | candidate_score=33.5119
+  [CasA-V] num_preds=7, class_set=['Car'], mean_score=0.9682, max_score=0.9986
+  [SCAFNet] num_preds=8, class_set=['Car', 'Cyclist'], mean_score=0.9385, max_score=0.9995
+  [CasA_V_fgsp_V1] num_preds=12, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8959, max_score=0.9991
+  [SCAF-FGSPNet] num_preds=9, class_set=['Car', 'Pedestrian'], mean_score=0.9563, max_score=0.9997
+====================================================================================================
+Rank 14 | frame_id=003683 | candidate_score=33.3497
+  [CasA-V] num_preds=9, class_set=['Car', 'Pedestrian'], mean_score=0.9098, max_score=0.9877
+  [SCAFNet] num_preds=13, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8691, max_score=0.9883
+  [CasA_V_fgsp_V1] num_preds=12, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8772, max_score=0.9900
+  [SCAF-FGSPNet] num_preds=12, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.9304, max_score=0.9944
+====================================================================================================
+Rank 15 | frame_id=000486 | candidate_score=33.0966
+  [CasA-V] num_preds=7, class_set=['Car'], mean_score=0.9703, max_score=0.9985
+  [SCAFNet] num_preds=11, class_set=['Car', 'Pedestrian'], mean_score=0.8976, max_score=0.9995
+  [CasA_V_fgsp_V1] num_preds=9, class_set=['Car', 'Pedestrian'], mean_score=0.9262, max_score=0.9988
+  [SCAF-FGSPNet] num_preds=10, class_set=['Car', 'Pedestrian'], mean_score=0.9486, max_score=0.9997
+====================================================================================================
+Rank 16 | frame_id=004462 | candidate_score=33.0400
+  [CasA-V] num_preds=10, class_set=['Car'], mean_score=0.9146, max_score=0.9975
+  [SCAFNet] num_preds=15, class_set=['Car', 'Pedestrian'], mean_score=0.8802, max_score=0.9996
+  [CasA_V_fgsp_V1] num_preds=13, class_set=['Car'], mean_score=0.9243, max_score=0.9994
+  [SCAF-FGSPNet] num_preds=13, class_set=['Car'], mean_score=0.9203, max_score=0.9997
+====================================================================================================
+Rank 17 | frame_id=007412 | candidate_score=32.9887
+  [CasA-V] num_preds=12, class_set=['Cyclist', 'Pedestrian'], mean_score=0.9024, max_score=0.9853
+  [SCAFNet] num_preds=14, class_set=['Cyclist', 'Pedestrian'], mean_score=0.9040, max_score=0.9976
+  [CasA_V_fgsp_V1] num_preds=13, class_set=['Cyclist', 'Pedestrian'], mean_score=0.9052, max_score=0.9970
+  [SCAF-FGSPNet] num_preds=9, class_set=['Cyclist', 'Pedestrian'], mean_score=0.9456, max_score=0.9988
+====================================================================================================
+Rank 18 | frame_id=006937 | candidate_score=32.7217
+  [CasA-V] num_preds=14, class_set=['Car', 'Pedestrian'], mean_score=0.9226, max_score=0.9918
+  [SCAFNet] num_preds=15, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.9201, max_score=0.9969
+  [CasA_V_fgsp_V1] num_preds=18, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.9000, max_score=0.9962
+  [SCAF-FGSPNet] num_preds=17, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.9119, max_score=0.9989
+====================================================================================================
+Rank 19 | frame_id=001794 | candidate_score=32.6550
+  [CasA-V] num_preds=8, class_set=['Car'], mean_score=0.9557, max_score=0.9976
+  [SCAFNet] num_preds=12, class_set=['Car'], mean_score=0.9080, max_score=0.9994
+  [CasA_V_fgsp_V1] num_preds=12, class_set=['Car'], mean_score=0.9323, max_score=0.9987
+  [SCAF-FGSPNet] num_preds=12, class_set=['Car'], mean_score=0.9279, max_score=0.9996
+====================================================================================================
+Rank 20 | frame_id=002737 | candidate_score=32.6134
+  [CasA-V] num_preds=8, class_set=['Car'], mean_score=0.8870, max_score=0.9975
+  [SCAFNet] num_preds=10, class_set=['Car', 'Pedestrian'], mean_score=0.8870, max_score=0.9988
+  [CasA_V_fgsp_V1] num_preds=13, class_set=['Car', 'Pedestrian'], mean_score=0.8611, max_score=0.9987
+  [SCAF-FGSPNet] num_preds=10, class_set=['Car', 'Pedestrian'], mean_score=0.8570, max_score=0.9996
+====================================================================================================
+Rank 21 | frame_id=000831 | candidate_score=32.0652
+  [CasA-V] num_preds=10, class_set=['Car'], mean_score=0.9307, max_score=0.9977
+  [SCAFNet] num_preds=14, class_set=['Car'], mean_score=0.9102, max_score=0.9991
+  [CasA_V_fgsp_V1] num_preds=14, class_set=['Car'], mean_score=0.9000, max_score=0.9981
+  [SCAF-FGSPNet] num_preds=13, class_set=['Car'], mean_score=0.9332, max_score=0.9994
+====================================================================================================
+Rank 22 | frame_id=004196 | candidate_score=32.0543
+  [CasA-V] num_preds=8, class_set=['Car'], mean_score=0.9452, max_score=0.9983
+  [SCAFNet] num_preds=12, class_set=['Car'], mean_score=0.9248, max_score=0.9987
+  [CasA_V_fgsp_V1] num_preds=12, class_set=['Car'], mean_score=0.9320, max_score=0.9988
+  [SCAF-FGSPNet] num_preds=11, class_set=['Car'], mean_score=0.9275, max_score=0.9997
+====================================================================================================
+Rank 23 | frame_id=003826 | candidate_score=32.0087
+  [CasA-V] num_preds=11, class_set=['Cyclist', 'Pedestrian'], mean_score=0.8247, max_score=0.9879
+  [SCAFNet] num_preds=6, class_set=['Pedestrian'], mean_score=0.8742, max_score=0.9954
+  [CasA_V_fgsp_V1] num_preds=11, class_set=['Cyclist', 'Pedestrian'], mean_score=0.8397, max_score=0.9794
+  [SCAF-FGSPNet] num_preds=8, class_set=['Cyclist', 'Pedestrian'], mean_score=0.8605, max_score=0.9939
+====================================================================================================
+Rank 24 | frame_id=004096 | candidate_score=31.9537
+  [CasA-V] num_preds=3, class_set=['Car'], mean_score=0.8969, max_score=0.9897
+  [SCAFNet] num_preds=5, class_set=['Car'], mean_score=0.9162, max_score=0.9965
+  [CasA_V_fgsp_V1] num_preds=7, class_set=['Car'], mean_score=0.8804, max_score=0.9919
+  [SCAF-FGSPNet] num_preds=7, class_set=['Car'], mean_score=0.8807, max_score=0.9962
+====================================================================================================
+Rank 25 | frame_id=003763 | candidate_score=31.8999
+  [CasA-V] num_preds=8, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8829, max_score=0.9998
+  [SCAFNet] num_preds=6, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.9011, max_score=0.9998
+  [CasA_V_fgsp_V1] num_preds=9, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8923, max_score=0.9997
+  [SCAF-FGSPNet] num_preds=4, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.9000, max_score=0.9999
+====================================================================================================
+Rank 26 | frame_id=002815 | candidate_score=31.7762
+  [CasA-V] num_preds=10, class_set=['Car'], mean_score=0.9553, max_score=0.9957
+  [SCAFNet] num_preds=12, class_set=['Car'], mean_score=0.9240, max_score=0.9981
+  [CasA_V_fgsp_V1] num_preds=15, class_set=['Car'], mean_score=0.9186, max_score=0.9971
+  [SCAF-FGSPNet] num_preds=13, class_set=['Car'], mean_score=0.9397, max_score=0.9984
+====================================================================================================
+Rank 27 | frame_id=005182 | candidate_score=31.7548
+  [CasA-V] num_preds=8, class_set=['Car'], mean_score=0.9630, max_score=0.9967
+  [SCAFNet] num_preds=10, class_set=['Car'], mean_score=0.9197, max_score=0.9994
+  [CasA_V_fgsp_V1] num_preds=11, class_set=['Car'], mean_score=0.9166, max_score=0.9981
+  [SCAF-FGSPNet] num_preds=12, class_set=['Car'], mean_score=0.9279, max_score=0.9996
+====================================================================================================
+Rank 28 | frame_id=003199 | candidate_score=31.4546
+  [CasA-V] num_preds=13, class_set=['Pedestrian'], mean_score=0.8357, max_score=0.9777
+  [SCAFNet] num_preds=13, class_set=['Pedestrian'], mean_score=0.8846, max_score=0.9790
+  [CasA_V_fgsp_V1] num_preds=12, class_set=['Cyclist', 'Pedestrian'], mean_score=0.8436, max_score=0.9910
+  [SCAF-FGSPNet] num_preds=9, class_set=['Pedestrian'], mean_score=0.8902, max_score=0.9871
+====================================================================================================
+Rank 29 | frame_id=000964 | candidate_score=31.3946
+  [CasA-V] num_preds=11, class_set=['Car', 'Pedestrian'], mean_score=0.9353, max_score=0.9966
+  [SCAFNet] num_preds=13, class_set=['Car', 'Pedestrian'], mean_score=0.9276, max_score=0.9922
+  [CasA_V_fgsp_V1] num_preds=13, class_set=['Car', 'Pedestrian'], mean_score=0.9156, max_score=0.9921
+  [SCAF-FGSPNet] num_preds=15, class_set=['Car', 'Pedestrian'], mean_score=0.9026, max_score=0.9947
+====================================================================================================
+Rank 30 | frame_id=006768 | candidate_score=31.0789
+  [CasA-V] num_preds=9, class_set=['Pedestrian'], mean_score=0.8689, max_score=0.9844
+  [SCAFNet] num_preds=12, class_set=['Car', 'Pedestrian'], mean_score=0.8944, max_score=0.9930
+  [CasA_V_fgsp_V1] num_preds=12, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8966, max_score=0.9833
+  [SCAF-FGSPNet] num_preds=11, class_set=['Cyclist', 'Pedestrian'], mean_score=0.9413, max_score=0.9982
+====================================================================================================
+Rank 31 | frame_id=006897 | candidate_score=30.9155
+  [CasA-V] num_preds=8, class_set=['Car'], mean_score=0.9306, max_score=0.9984
+  [SCAFNet] num_preds=11, class_set=['Car'], mean_score=0.9008, max_score=0.9994
+  [CasA_V_fgsp_V1] num_preds=13, class_set=['Car'], mean_score=0.8882, max_score=0.9984
+  [SCAF-FGSPNet] num_preds=9, class_set=['Car'], mean_score=0.9582, max_score=0.9996
+====================================================================================================
+Rank 32 | frame_id=004370 | candidate_score=30.6802
+  [CasA-V] num_preds=7, class_set=['Car'], mean_score=0.9640, max_score=0.9978
+  [SCAFNet] num_preds=10, class_set=['Car', 'Cyclist'], mean_score=0.9474, max_score=0.9996
+  [CasA_V_fgsp_V1] num_preds=10, class_set=['Car', 'Cyclist'], mean_score=0.9416, max_score=0.9990
+  [SCAF-FGSPNet] num_preds=10, class_set=['Car', 'Cyclist'], mean_score=0.9405, max_score=0.9996
+====================================================================================================
+Rank 33 | frame_id=005546 | candidate_score=30.4806
+  [CasA-V] num_preds=11, class_set=['Car'], mean_score=0.9390, max_score=0.9974
+  [SCAFNet] num_preds=11, class_set=['Car'], mean_score=0.9608, max_score=0.9992
+  [CasA_V_fgsp_V1] num_preds=15, class_set=['Car'], mean_score=0.9227, max_score=0.9988
+  [SCAF-FGSPNet] num_preds=14, class_set=['Car', 'Cyclist'], mean_score=0.9410, max_score=0.9993
+====================================================================================================
+Rank 34 | frame_id=006444 | candidate_score=30.3949
+  [CasA-V] num_preds=13, class_set=['Car', 'Pedestrian'], mean_score=0.8657, max_score=0.9925
+  [SCAFNet] num_preds=11, class_set=['Cyclist', 'Pedestrian'], mean_score=0.9050, max_score=0.9872
+  [CasA_V_fgsp_V1] num_preds=15, class_set=['Pedestrian'], mean_score=0.8647, max_score=0.9846
+  [SCAF-FGSPNet] num_preds=11, class_set=['Pedestrian'], mean_score=0.9030, max_score=0.9945
+====================================================================================================
+Rank 35 | frame_id=003211 | candidate_score=30.3814
+  [CasA-V] num_preds=9, class_set=['Car', 'Cyclist'], mean_score=0.9171, max_score=0.9963
+  [SCAFNet] num_preds=11, class_set=['Car'], mean_score=0.9399, max_score=0.9994
+  [CasA_V_fgsp_V1] num_preds=12, class_set=['Car'], mean_score=0.9229, max_score=0.9985
+  [SCAF-FGSPNet] num_preds=12, class_set=['Car'], mean_score=0.9411, max_score=0.9996
+====================================================================================================
+Rank 36 | frame_id=006474 | candidate_score=30.3286
+  [CasA-V] num_preds=8, class_set=['Car'], mean_score=0.9060, max_score=0.9957
+  [SCAFNet] num_preds=10, class_set=['Car', 'Pedestrian'], mean_score=0.9090, max_score=0.9986
+  [CasA_V_fgsp_V1] num_preds=11, class_set=['Car', 'Pedestrian'], mean_score=0.9088, max_score=0.9969
+  [SCAF-FGSPNet] num_preds=11, class_set=['Car', 'Pedestrian'], mean_score=0.9147, max_score=0.9995
+====================================================================================================
+Rank 37 | frame_id=006613 | candidate_score=30.3000
+  [CasA-V] num_preds=8, class_set=['Pedestrian'], mean_score=0.8567, max_score=0.9466
+  [SCAFNet] num_preds=5, class_set=['Pedestrian'], mean_score=0.9105, max_score=0.9908
+  [CasA_V_fgsp_V1] num_preds=5, class_set=['Pedestrian'], mean_score=0.8715, max_score=0.9685
+  [SCAF-FGSPNet] num_preds=4, class_set=['Pedestrian'], mean_score=0.8971, max_score=0.9529
+====================================================================================================
+Rank 38 | frame_id=006925 | candidate_score=30.1115
+  [CasA-V] num_preds=10, class_set=['Cyclist', 'Pedestrian'], mean_score=0.8534, max_score=0.9509
+  [SCAFNet] num_preds=12, class_set=['Cyclist', 'Pedestrian'], mean_score=0.8793, max_score=0.9671
+  [CasA_V_fgsp_V1] num_preds=12, class_set=['Cyclist', 'Pedestrian'], mean_score=0.8575, max_score=0.9597
+  [SCAF-FGSPNet] num_preds=8, class_set=['Cyclist', 'Pedestrian'], mean_score=0.8717, max_score=0.9840
+====================================================================================================
+Rank 39 | frame_id=001682 | candidate_score=30.0601
+  [CasA-V] num_preds=6, class_set=['Car'], mean_score=0.9239, max_score=0.9976
+  [SCAFNet] num_preds=9, class_set=['Car', 'Pedestrian'], mean_score=0.9067, max_score=0.9991
+  [CasA_V_fgsp_V1] num_preds=9, class_set=['Car', 'Pedestrian'], mean_score=0.9210, max_score=0.9982
+  [SCAF-FGSPNet] num_preds=8, class_set=['Car', 'Pedestrian'], mean_score=0.9307, max_score=0.9993
+====================================================================================================
+Rank 40 | frame_id=002789 | candidate_score=30.0557
+  [CasA-V] num_preds=4, class_set=['Car'], mean_score=0.9917, max_score=0.9985
+  [SCAFNet] num_preds=6, class_set=['Car', 'Cyclist'], mean_score=0.9571, max_score=0.9997
+  [CasA_V_fgsp_V1] num_preds=6, class_set=['Car', 'Pedestrian'], mean_score=0.9462, max_score=0.9986
+  [SCAF-FGSPNet] num_preds=7, class_set=['Car', 'Pedestrian'], mean_score=0.9283, max_score=0.9995
+====================================================================================================
+Rank 41 | frame_id=000393 | candidate_score=30.0531
+  [CasA-V] num_preds=13, class_set=['Car', 'Pedestrian'], mean_score=0.8847, max_score=0.9989
+  [SCAFNet] num_preds=10, class_set=['Car'], mean_score=0.9579, max_score=0.9996
+  [CasA_V_fgsp_V1] num_preds=10, class_set=['Car'], mean_score=0.9495, max_score=0.9990
+  [SCAF-FGSPNet] num_preds=11, class_set=['Car'], mean_score=0.9269, max_score=0.9997
+====================================================================================================
+Rank 42 | frame_id=003718 | candidate_score=29.3827
+  [CasA-V] num_preds=17, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8548, max_score=0.9724
+  [SCAFNet] num_preds=14, class_set=['Car', 'Pedestrian'], mean_score=0.8894, max_score=0.9856
+  [CasA_V_fgsp_V1] num_preds=18, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.8633, max_score=0.9774
+  [SCAF-FGSPNet] num_preds=14, class_set=['Car', 'Cyclist', 'Pedestrian'], mean_score=0.9050, max_score=0.9863
+====================================================================================================
+Rank 43 | frame_id=004496 | candidate_score=29.3814
+  [CasA-V] num_preds=9, class_set=['Car'], mean_score=0.9371, max_score=0.9984
+  [SCAFNet] num_preds=12, class_set=['Car', 'Pedestrian'], mean_score=0.9008, max_score=0.9992
+  [CasA_V_fgsp_V1] num_preds=11, class_set=['Car'], mean_score=0.9278, max_score=0.9988
+  [SCAF-FGSPNet] num_preds=12, class_set=['Car', 'Pedestrian'], mean_score=0.9410, max_score=0.9997
+====================================================================================================
+Rank 44 | frame_id=006602 | candidate_score=29.3649
+  [CasA-V] num_preds=8, class_set=['Car'], mean_score=0.9533, max_score=0.9978
+  [SCAFNet] num_preds=11, class_set=['Car'], mean_score=0.9080, max_score=0.9992
+  [CasA_V_fgsp_V1] num_preds=12, class_set=['Car'], mean_score=0.9191, max_score=0.9982
+  [SCAF-FGSPNet] num_preds=11, class_set=['Car'], mean_score=0.9328, max_score=0.9997
+====================================================================================================
+Rank 45 | frame_id=000181 | candidate_score=29.3490
+  [CasA-V] num_preds=9, class_set=['Car'], mean_score=0.9259, max_score=0.9976
+  [SCAFNet] num_preds=12, class_set=['Car'], mean_score=0.9309, max_score=0.9993
+  [CasA_V_fgsp_V1] num_preds=13, class_set=['Car'], mean_score=0.9217, max_score=0.9984
+  [SCAF-FGSPNet] num_preds=12, class_set=['Car'], mean_score=0.9250, max_score=0.9995
+====================================================================================================
+Rank 46 | frame_id=003001 | candidate_score=29.3390
+  [CasA-V] num_preds=8, class_set=['Car'], mean_score=0.9614, max_score=0.9985
+  [SCAFNet] num_preds=12, class_set=['Car'], mean_score=0.9058, max_score=0.9988
+  [CasA_V_fgsp_V1] num_preds=11, class_set=['Car'], mean_score=0.9328, max_score=0.9991
+  [SCAF-FGSPNet] num_preds=11, class_set=['Car'], mean_score=0.9199, max_score=0.9996
+====================================================================================================
+Rank 47 | frame_id=003805 | candidate_score=29.3130
+  [CasA-V] num_preds=10, class_set=['Car', 'Pedestrian'], mean_score=0.9190, max_score=0.9857
+  [SCAFNet] num_preds=13, class_set=['Car', 'Pedestrian'], mean_score=0.9300, max_score=0.9980
+  [CasA_V_fgsp_V1] num_preds=14, class_set=['Car', 'Pedestrian'], mean_score=0.9034, max_score=0.9952
+  [SCAF-FGSPNet] num_preds=13, class_set=['Car', 'Pedestrian'], mean_score=0.9096, max_score=0.9969
+====================================================================================================
+Rank 48 | frame_id=006395 | candidate_score=29.0530
+  [CasA-V] num_preds=12, class_set=['Cyclist', 'Pedestrian'], mean_score=0.8776, max_score=0.9849
+  [SCAFNet] num_preds=11, class_set=['Pedestrian'], mean_score=0.8803, max_score=0.9891
+  [CasA_V_fgsp_V1] num_preds=16, class_set=['Cyclist', 'Pedestrian'], mean_score=0.8588, max_score=0.9629
+  [SCAF-FGSPNet] num_preds=14, class_set=['Cyclist', 'Pedestrian'], mean_score=0.8923, max_score=0.9842
+====================================================================================================
+Rank 49 | frame_id=000595 | candidate_score=29.0204
+  [CasA-V] num_preds=7, class_set=['Car', 'Pedestrian'], mean_score=0.8368, max_score=0.9872
+  [SCAFNet] num_preds=4, class_set=['Car', 'Pedestrian'], mean_score=0.9106, max_score=0.9883
+  [CasA_V_fgsp_V1] num_preds=6, class_set=['Car', 'Pedestrian'], mean_score=0.8542, max_score=0.9886
+  [SCAF-FGSPNet] num_preds=3, class_set=['Car', 'Pedestrian'], mean_score=0.9157, max_score=0.9945
+====================================================================================================
+Rank 50 | frame_id=004924 | candidate_score=28.8351
+  [CasA-V] num_preds=9, class_set=['Pedestrian'], mean_score=0.8645, max_score=0.8969
+  [SCAFNet] num_preds=13, class_set=['Pedestrian'], mean_score=0.8397, max_score=0.9465
+  [CasA_V_fgsp_V1] num_preds=11, class_set=['Pedestrian'], mean_score=0.8828, max_score=0.9480
+  [SCAF-FGSPNet] num_preds=12, class_set=['Pedestrian'], mean_score=0.8753, max_score=0.9422

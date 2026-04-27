@@ -1,0 +1,2868 @@
+{
+  "model_epochs": {
+    "CasA-V": 72,
+    "SCAFNet": 119,
+    "CasA_V_fgsp_V1": 72,
+    "SCAF-FGSPNet": 113
+  },
+  "num_common_ids": 3768,
+  "num_candidates_after_filter": 2212,
+  "top_candidates": [
+    {
+      "frame_id": "003047",
+      "candidate_score": 53.3601,
+      "CasA-V": {
+        "frame_id": "003047",
+        "num_preds": 11,
+        "class_counter": {
+          "Pedestrian": 11
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8967973589897156,
+        "max_score": 0.9940855503082275
+      },
+      "SCAFNet": {
+        "frame_id": "003047",
+        "num_preds": 19,
+        "class_counter": {
+          "Pedestrian": 18,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8552715182304382,
+        "max_score": 0.99064701795578
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "003047",
+        "num_preds": 17,
+        "class_counter": {
+          "Pedestrian": 16,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8502047657966614,
+        "max_score": 0.9738765358924866
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "003047",
+        "num_preds": 16,
+        "class_counter": {
+          "Pedestrian": 15,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8829256296157837,
+        "max_score": 0.9971400499343872
+      }
+    },
+    {
+      "frame_id": "004943",
+      "candidate_score": 43.6148,
+      "CasA-V": {
+        "frame_id": "004943",
+        "num_preds": 6,
+        "class_counter": {
+          "Car": 6
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.8905091285705566,
+        "max_score": 0.9977126121520996
+      },
+      "SCAFNet": {
+        "frame_id": "004943",
+        "num_preds": 9,
+        "class_counter": {
+          "Car": 7,
+          "Pedestrian": 1,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8819577097892761,
+        "max_score": 0.9987926483154297
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "004943",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 10,
+          "Pedestrian": 1,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8655169010162354,
+        "max_score": 0.9983248114585876
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "004943",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 9,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8577814102172852,
+        "max_score": 0.9996132254600525
+      }
+    },
+    {
+      "frame_id": "001046",
+      "candidate_score": 41.9658,
+      "CasA-V": {
+        "frame_id": "001046",
+        "num_preds": 18,
+        "class_counter": {
+          "Cyclist": 1,
+          "Pedestrian": 16,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8744345903396606,
+        "max_score": 0.9982951283454895
+      },
+      "SCAFNet": {
+        "frame_id": "001046",
+        "num_preds": 16,
+        "class_counter": {
+          "Pedestrian": 14,
+          "Cyclist": 1,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8764815330505371,
+        "max_score": 0.9960746765136719
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "001046",
+        "num_preds": 17,
+        "class_counter": {
+          "Pedestrian": 15,
+          "Cyclist": 1,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8945353031158447,
+        "max_score": 0.9943708777427673
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "001046",
+        "num_preds": 12,
+        "class_counter": {
+          "Cyclist": 1,
+          "Pedestrian": 10,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9341369271278381,
+        "max_score": 0.9987584352493286
+      }
+    },
+    {
+      "frame_id": "000559",
+      "candidate_score": 40.5228,
+      "CasA-V": {
+        "frame_id": "000559",
+        "num_preds": 8,
+        "class_counter": {
+          "Cyclist": 2,
+          "Pedestrian": 6
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9525681734085083,
+        "max_score": 0.9976882934570312
+      },
+      "SCAFNet": {
+        "frame_id": "000559",
+        "num_preds": 11,
+        "class_counter": {
+          "Cyclist": 2,
+          "Pedestrian": 9
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9211721420288086,
+        "max_score": 0.9989196062088013
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "000559",
+        "num_preds": 15,
+        "class_counter": {
+          "Cyclist": 3,
+          "Pedestrian": 11,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8704006671905518,
+        "max_score": 0.9989976286888123
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "000559",
+        "num_preds": 11,
+        "class_counter": {
+          "Cyclist": 2,
+          "Pedestrian": 8,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9615468382835388,
+        "max_score": 0.9998679161071777
+      }
+    },
+    {
+      "frame_id": "004095",
+      "candidate_score": 38.329,
+      "CasA-V": {
+        "frame_id": "004095",
+        "num_preds": 8,
+        "class_counter": {
+          "Car": 8
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9465645551681519,
+        "max_score": 0.9983990788459778
+      },
+      "SCAFNet": {
+        "frame_id": "004095",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9175107479095459,
+        "max_score": 0.9994612336158752
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "004095",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 13
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9040906429290771,
+        "max_score": 0.9984855055809021
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "004095",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 13
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9148552417755127,
+        "max_score": 0.9996528625488281
+      }
+    },
+    {
+      "frame_id": "007420",
+      "candidate_score": 38.3084,
+      "CasA-V": {
+        "frame_id": "007420",
+        "num_preds": 12,
+        "class_counter": {
+          "Pedestrian": 11,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.880445659160614,
+        "max_score": 0.989784300327301
+      },
+      "SCAFNet": {
+        "frame_id": "007420",
+        "num_preds": 16,
+        "class_counter": {
+          "Pedestrian": 15,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8459341526031494,
+        "max_score": 0.9959992170333862
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "007420",
+        "num_preds": 15,
+        "class_counter": {
+          "Pedestrian": 14,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8616321682929993,
+        "max_score": 0.9907534122467041
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "007420",
+        "num_preds": 10,
+        "class_counter": {
+          "Pedestrian": 9,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9090315699577332,
+        "max_score": 0.9951607584953308
+      }
+    },
+    {
+      "frame_id": "001267",
+      "candidate_score": 38.0994,
+      "CasA-V": {
+        "frame_id": "001267",
+        "num_preds": 9,
+        "class_counter": {
+          "Pedestrian": 9
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8351337313652039,
+        "max_score": 0.9545251727104187
+      },
+      "SCAFNet": {
+        "frame_id": "001267",
+        "num_preds": 11,
+        "class_counter": {
+          "Pedestrian": 11
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8507363796234131,
+        "max_score": 0.9794466495513916
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "001267",
+        "num_preds": 12,
+        "class_counter": {
+          "Pedestrian": 12
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8628063201904297,
+        "max_score": 0.9713308215141296
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "001267",
+        "num_preds": 6,
+        "class_counter": {
+          "Pedestrian": 6
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8199467062950134,
+        "max_score": 0.9797456860542297
+      }
+    },
+    {
+      "frame_id": "003159",
+      "candidate_score": 37.9564,
+      "CasA-V": {
+        "frame_id": "003159",
+        "num_preds": 6,
+        "class_counter": {
+          "Car": 5,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8517776131629944,
+        "max_score": 0.9783594012260437
+      },
+      "SCAFNet": {
+        "frame_id": "003159",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 9,
+          "Pedestrian": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8355420827865601,
+        "max_score": 0.9948151707649231
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "003159",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 9,
+          "Pedestrian": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8559818863868713,
+        "max_score": 0.9934681057929993
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "003159",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 8,
+          "Pedestrian": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8796132206916809,
+        "max_score": 0.9985641837120056
+      }
+    },
+    {
+      "frame_id": "007266",
+      "candidate_score": 37.4031,
+      "CasA-V": {
+        "frame_id": "007266",
+        "num_preds": 6,
+        "class_counter": {
+          "Car": 6
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9119260311126709,
+        "max_score": 0.9965253472328186
+      },
+      "SCAFNet": {
+        "frame_id": "007266",
+        "num_preds": 8,
+        "class_counter": {
+          "Car": 8
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9379146099090576,
+        "max_score": 0.9995549321174622
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "007266",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 10
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9086915850639343,
+        "max_score": 0.9985412359237671
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "007266",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9018571972846985,
+        "max_score": 0.999685525894165
+      }
+    },
+    {
+      "frame_id": "005878",
+      "candidate_score": 36.2216,
+      "CasA-V": {
+        "frame_id": "005878",
+        "num_preds": 2,
+        "class_counter": {
+          "Car": 2
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9503629207611084,
+        "max_score": 0.9959554672241211
+      },
+      "SCAFNet": {
+        "frame_id": "005878",
+        "num_preds": 6,
+        "class_counter": {
+          "Car": 5,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8538033366203308,
+        "max_score": 0.996821403503418
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "005878",
+        "num_preds": 5,
+        "class_counter": {
+          "Car": 4,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9012047052383423,
+        "max_score": 0.9959041476249695
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "005878",
+        "num_preds": 6,
+        "class_counter": {
+          "Car": 4,
+          "Pedestrian": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8621933460235596,
+        "max_score": 0.9986164569854736
+      }
+    },
+    {
+      "frame_id": "002168",
+      "candidate_score": 35.3262,
+      "CasA-V": {
+        "frame_id": "002168",
+        "num_preds": 7,
+        "class_counter": {
+          "Car": 7
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9571657180786133,
+        "max_score": 0.9966241121292114
+      },
+      "SCAFNet": {
+        "frame_id": "002168",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9286389946937561,
+        "max_score": 0.9991664886474609
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "002168",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9080124497413635,
+        "max_score": 0.9982971549034119
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "002168",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9133589267730713,
+        "max_score": 0.9997228980064392
+      }
+    },
+    {
+      "frame_id": "006088",
+      "candidate_score": 34.5183,
+      "CasA-V": {
+        "frame_id": "006088",
+        "num_preds": 12,
+        "class_counter": {
+          "Pedestrian": 12
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8761882185935974,
+        "max_score": 0.9920774102210999
+      },
+      "SCAFNet": {
+        "frame_id": "006088",
+        "num_preds": 12,
+        "class_counter": {
+          "Pedestrian": 11,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9066004157066345,
+        "max_score": 0.9956511855125427
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "006088",
+        "num_preds": 15,
+        "class_counter": {
+          "Cyclist": 1,
+          "Pedestrian": 12,
+          "Car": 2
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8732222318649292,
+        "max_score": 0.98703533411026
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "006088",
+        "num_preds": 10,
+        "class_counter": {
+          "Pedestrian": 8,
+          "Cyclist": 1,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9143930673599243,
+        "max_score": 0.9947677850723267
+      }
+    },
+    {
+      "frame_id": "002546",
+      "candidate_score": 33.5119,
+      "CasA-V": {
+        "frame_id": "002546",
+        "num_preds": 7,
+        "class_counter": {
+          "Car": 7
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9681606292724609,
+        "max_score": 0.9986279010772705
+      },
+      "SCAFNet": {
+        "frame_id": "002546",
+        "num_preds": 8,
+        "class_counter": {
+          "Car": 7,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist"
+        ],
+        "mean_score": 0.9384860992431641,
+        "max_score": 0.9995492100715637
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "002546",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 9,
+          "Pedestrian": 2,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8959095478057861,
+        "max_score": 0.99907386302948
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "002546",
+        "num_preds": 9,
+        "class_counter": {
+          "Car": 7,
+          "Pedestrian": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9562545418739319,
+        "max_score": 0.9997003078460693
+      }
+    },
+    {
+      "frame_id": "003683",
+      "candidate_score": 33.3497,
+      "CasA-V": {
+        "frame_id": "003683",
+        "num_preds": 9,
+        "class_counter": {
+          "Car": 1,
+          "Pedestrian": 8
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9097630977630615,
+        "max_score": 0.9876804351806641
+      },
+      "SCAFNet": {
+        "frame_id": "003683",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 1,
+          "Pedestrian": 11,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8690938949584961,
+        "max_score": 0.9883084297180176
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "003683",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 1,
+          "Pedestrian": 10,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8772056698799133,
+        "max_score": 0.9900285601615906
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "003683",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 1,
+          "Pedestrian": 10,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9304340481758118,
+        "max_score": 0.9944350719451904
+      }
+    },
+    {
+      "frame_id": "000486",
+      "candidate_score": 33.0966,
+      "CasA-V": {
+        "frame_id": "000486",
+        "num_preds": 7,
+        "class_counter": {
+          "Car": 7
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9703167676925659,
+        "max_score": 0.9984856247901917
+      },
+      "SCAFNet": {
+        "frame_id": "000486",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 9,
+          "Pedestrian": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8975932598114014,
+        "max_score": 0.9994891881942749
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "000486",
+        "num_preds": 9,
+        "class_counter": {
+          "Car": 8,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9261741638183594,
+        "max_score": 0.9988335967063904
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "000486",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 8,
+          "Pedestrian": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9485852122306824,
+        "max_score": 0.9997362494468689
+      }
+    },
+    {
+      "frame_id": "004462",
+      "candidate_score": 33.04,
+      "CasA-V": {
+        "frame_id": "004462",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 10
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9146499633789062,
+        "max_score": 0.9975136518478394
+      },
+      "SCAFNet": {
+        "frame_id": "004462",
+        "num_preds": 15,
+        "class_counter": {
+          "Car": 14,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.880188524723053,
+        "max_score": 0.9996459484100342
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "004462",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 13
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9242839813232422,
+        "max_score": 0.9993554949760437
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "004462",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 13
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9202856421470642,
+        "max_score": 0.9997262358665466
+      }
+    },
+    {
+      "frame_id": "007412",
+      "candidate_score": 32.9887,
+      "CasA-V": {
+        "frame_id": "007412",
+        "num_preds": 12,
+        "class_counter": {
+          "Cyclist": 1,
+          "Pedestrian": 11
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9024197459220886,
+        "max_score": 0.9853164553642273
+      },
+      "SCAFNet": {
+        "frame_id": "007412",
+        "num_preds": 14,
+        "class_counter": {
+          "Cyclist": 2,
+          "Pedestrian": 12
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9039797782897949,
+        "max_score": 0.9975528120994568
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "007412",
+        "num_preds": 13,
+        "class_counter": {
+          "Cyclist": 2,
+          "Pedestrian": 11
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9051608443260193,
+        "max_score": 0.9969965219497681
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "007412",
+        "num_preds": 9,
+        "class_counter": {
+          "Cyclist": 1,
+          "Pedestrian": 8
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9455657601356506,
+        "max_score": 0.9987636804580688
+      }
+    },
+    {
+      "frame_id": "006937",
+      "candidate_score": 32.7217,
+      "CasA-V": {
+        "frame_id": "006937",
+        "num_preds": 14,
+        "class_counter": {
+          "Pedestrian": 13,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9226078987121582,
+        "max_score": 0.9917609691619873
+      },
+      "SCAFNet": {
+        "frame_id": "006937",
+        "num_preds": 15,
+        "class_counter": {
+          "Pedestrian": 13,
+          "Car": 1,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9200775623321533,
+        "max_score": 0.9969447255134583
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "006937",
+        "num_preds": 18,
+        "class_counter": {
+          "Pedestrian": 16,
+          "Car": 1,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8999552130699158,
+        "max_score": 0.996151864528656
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "006937",
+        "num_preds": 17,
+        "class_counter": {
+          "Pedestrian": 14,
+          "Car": 2,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.911919355392456,
+        "max_score": 0.9989381432533264
+      }
+    },
+    {
+      "frame_id": "001794",
+      "candidate_score": 32.655,
+      "CasA-V": {
+        "frame_id": "001794",
+        "num_preds": 8,
+        "class_counter": {
+          "Car": 8
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9557226896286011,
+        "max_score": 0.9976488947868347
+      },
+      "SCAFNet": {
+        "frame_id": "001794",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9080241322517395,
+        "max_score": 0.9994161128997803
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "001794",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9322550892829895,
+        "max_score": 0.9986627101898193
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "001794",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9279112815856934,
+        "max_score": 0.999606192111969
+      }
+    },
+    {
+      "frame_id": "002737",
+      "candidate_score": 32.6134,
+      "CasA-V": {
+        "frame_id": "002737",
+        "num_preds": 8,
+        "class_counter": {
+          "Car": 8
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.8869602680206299,
+        "max_score": 0.9974861145019531
+      },
+      "SCAFNet": {
+        "frame_id": "002737",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 9,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8870447278022766,
+        "max_score": 0.9988388419151306
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "002737",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 12,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.861066460609436,
+        "max_score": 0.9986863732337952
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "002737",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 9,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.857042670249939,
+        "max_score": 0.9996416568756104
+      }
+    },
+    {
+      "frame_id": "000831",
+      "candidate_score": 32.0652,
+      "CasA-V": {
+        "frame_id": "000831",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 10
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9306620359420776,
+        "max_score": 0.9976746439933777
+      },
+      "SCAFNet": {
+        "frame_id": "000831",
+        "num_preds": 14,
+        "class_counter": {
+          "Car": 14
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9101524353027344,
+        "max_score": 0.9990818500518799
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "000831",
+        "num_preds": 14,
+        "class_counter": {
+          "Car": 14
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.8999608159065247,
+        "max_score": 0.9980688691139221
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "000831",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 13
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9331837296485901,
+        "max_score": 0.9994242191314697
+      }
+    },
+    {
+      "frame_id": "004196",
+      "candidate_score": 32.0543,
+      "CasA-V": {
+        "frame_id": "004196",
+        "num_preds": 8,
+        "class_counter": {
+          "Car": 8
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9451721906661987,
+        "max_score": 0.9983161687850952
+      },
+      "SCAFNet": {
+        "frame_id": "004196",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9248432517051697,
+        "max_score": 0.9986936450004578
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "004196",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.931952178478241,
+        "max_score": 0.998806357383728
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "004196",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.927520215511322,
+        "max_score": 0.9996504783630371
+      }
+    },
+    {
+      "frame_id": "003826",
+      "candidate_score": 32.0087,
+      "CasA-V": {
+        "frame_id": "003826",
+        "num_preds": 11,
+        "class_counter": {
+          "Pedestrian": 10,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8247148394584656,
+        "max_score": 0.987880527973175
+      },
+      "SCAFNet": {
+        "frame_id": "003826",
+        "num_preds": 6,
+        "class_counter": {
+          "Pedestrian": 6
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8741558194160461,
+        "max_score": 0.9953879714012146
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "003826",
+        "num_preds": 11,
+        "class_counter": {
+          "Pedestrian": 10,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8396720886230469,
+        "max_score": 0.979423999786377
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "003826",
+        "num_preds": 8,
+        "class_counter": {
+          "Pedestrian": 7,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8604732155799866,
+        "max_score": 0.9938793182373047
+      }
+    },
+    {
+      "frame_id": "004096",
+      "candidate_score": 31.9537,
+      "CasA-V": {
+        "frame_id": "004096",
+        "num_preds": 3,
+        "class_counter": {
+          "Car": 3
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.8969318866729736,
+        "max_score": 0.9897481203079224
+      },
+      "SCAFNet": {
+        "frame_id": "004096",
+        "num_preds": 5,
+        "class_counter": {
+          "Car": 5
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9161554574966431,
+        "max_score": 0.9965237975120544
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "004096",
+        "num_preds": 7,
+        "class_counter": {
+          "Car": 7
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.8804357647895813,
+        "max_score": 0.991854190826416
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "004096",
+        "num_preds": 7,
+        "class_counter": {
+          "Car": 7
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.8806987404823303,
+        "max_score": 0.9961657524108887
+      }
+    },
+    {
+      "frame_id": "003763",
+      "candidate_score": 31.8999,
+      "CasA-V": {
+        "frame_id": "003763",
+        "num_preds": 8,
+        "class_counter": {
+          "Cyclist": 1,
+          "Car": 1,
+          "Pedestrian": 6
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8829163312911987,
+        "max_score": 0.9998438358306885
+      },
+      "SCAFNet": {
+        "frame_id": "003763",
+        "num_preds": 6,
+        "class_counter": {
+          "Cyclist": 1,
+          "Car": 1,
+          "Pedestrian": 4
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9010793566703796,
+        "max_score": 0.9997978806495667
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "003763",
+        "num_preds": 9,
+        "class_counter": {
+          "Cyclist": 1,
+          "Car": 1,
+          "Pedestrian": 7
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8922762274742126,
+        "max_score": 0.9997336268424988
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "003763",
+        "num_preds": 4,
+        "class_counter": {
+          "Cyclist": 1,
+          "Car": 1,
+          "Pedestrian": 2
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9000458717346191,
+        "max_score": 0.9999152421951294
+      }
+    },
+    {
+      "frame_id": "002815",
+      "candidate_score": 31.7762,
+      "CasA-V": {
+        "frame_id": "002815",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 10
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9552995562553406,
+        "max_score": 0.9957252740859985
+      },
+      "SCAFNet": {
+        "frame_id": "002815",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9240357875823975,
+        "max_score": 0.9981107711791992
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "002815",
+        "num_preds": 15,
+        "class_counter": {
+          "Car": 15
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9185532927513123,
+        "max_score": 0.9970948696136475
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "002815",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 13
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9397415518760681,
+        "max_score": 0.9983668923377991
+      }
+    },
+    {
+      "frame_id": "005182",
+      "candidate_score": 31.7548,
+      "CasA-V": {
+        "frame_id": "005182",
+        "num_preds": 8,
+        "class_counter": {
+          "Car": 8
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9630428552627563,
+        "max_score": 0.9967139959335327
+      },
+      "SCAFNet": {
+        "frame_id": "005182",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 10
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9196939468383789,
+        "max_score": 0.9994038343429565
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "005182",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9166267514228821,
+        "max_score": 0.9981034994125366
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "005182",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9278520941734314,
+        "max_score": 0.999563992023468
+      }
+    },
+    {
+      "frame_id": "003199",
+      "candidate_score": 31.4546,
+      "CasA-V": {
+        "frame_id": "003199",
+        "num_preds": 13,
+        "class_counter": {
+          "Pedestrian": 13
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8357324004173279,
+        "max_score": 0.977686882019043
+      },
+      "SCAFNet": {
+        "frame_id": "003199",
+        "num_preds": 13,
+        "class_counter": {
+          "Pedestrian": 13
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8846282958984375,
+        "max_score": 0.9790215492248535
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "003199",
+        "num_preds": 12,
+        "class_counter": {
+          "Pedestrian": 11,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8435782790184021,
+        "max_score": 0.9909951090812683
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "003199",
+        "num_preds": 9,
+        "class_counter": {
+          "Pedestrian": 9
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8901751041412354,
+        "max_score": 0.9871401190757751
+      }
+    },
+    {
+      "frame_id": "000964",
+      "candidate_score": 31.3946,
+      "CasA-V": {
+        "frame_id": "000964",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 1,
+          "Pedestrian": 10
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9352798461914062,
+        "max_score": 0.9965678453445435
+      },
+      "SCAFNet": {
+        "frame_id": "000964",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 1,
+          "Pedestrian": 12
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9276087880134583,
+        "max_score": 0.9921935796737671
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "000964",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 1,
+          "Pedestrian": 12
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9156341552734375,
+        "max_score": 0.9920539855957031
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "000964",
+        "num_preds": 15,
+        "class_counter": {
+          "Car": 1,
+          "Pedestrian": 14
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9025875329971313,
+        "max_score": 0.9947353005409241
+      }
+    },
+    {
+      "frame_id": "006768",
+      "candidate_score": 31.0789,
+      "CasA-V": {
+        "frame_id": "006768",
+        "num_preds": 9,
+        "class_counter": {
+          "Pedestrian": 9
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8689091801643372,
+        "max_score": 0.9843846559524536
+      },
+      "SCAFNet": {
+        "frame_id": "006768",
+        "num_preds": 12,
+        "class_counter": {
+          "Pedestrian": 11,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.894373893737793,
+        "max_score": 0.9930096864700317
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "006768",
+        "num_preds": 12,
+        "class_counter": {
+          "Pedestrian": 9,
+          "Cyclist": 1,
+          "Car": 2
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8966197371482849,
+        "max_score": 0.9833019375801086
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "006768",
+        "num_preds": 11,
+        "class_counter": {
+          "Pedestrian": 10,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9412893652915955,
+        "max_score": 0.9981707334518433
+      }
+    },
+    {
+      "frame_id": "006897",
+      "candidate_score": 30.9155,
+      "CasA-V": {
+        "frame_id": "006897",
+        "num_preds": 8,
+        "class_counter": {
+          "Car": 8
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9305804371833801,
+        "max_score": 0.9984315037727356
+      },
+      "SCAFNet": {
+        "frame_id": "006897",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9008445739746094,
+        "max_score": 0.9993546605110168
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "006897",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 13
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.8881890177726746,
+        "max_score": 0.9984062314033508
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "006897",
+        "num_preds": 9,
+        "class_counter": {
+          "Car": 9
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9581612348556519,
+        "max_score": 0.9996070265769958
+      }
+    },
+    {
+      "frame_id": "004370",
+      "candidate_score": 30.6802,
+      "CasA-V": {
+        "frame_id": "004370",
+        "num_preds": 7,
+        "class_counter": {
+          "Car": 7
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9639602899551392,
+        "max_score": 0.99784255027771
+      },
+      "SCAFNet": {
+        "frame_id": "004370",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 9,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist"
+        ],
+        "mean_score": 0.947431743144989,
+        "max_score": 0.999612033367157
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "004370",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 9,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist"
+        ],
+        "mean_score": 0.9416265487670898,
+        "max_score": 0.9989522695541382
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "004370",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 9,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist"
+        ],
+        "mean_score": 0.9404590725898743,
+        "max_score": 0.9996228218078613
+      }
+    },
+    {
+      "frame_id": "005546",
+      "candidate_score": 30.4806,
+      "CasA-V": {
+        "frame_id": "005546",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.938985288143158,
+        "max_score": 0.9973783493041992
+      },
+      "SCAFNet": {
+        "frame_id": "005546",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9607568979263306,
+        "max_score": 0.9992377758026123
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "005546",
+        "num_preds": 15,
+        "class_counter": {
+          "Car": 15
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9227068424224854,
+        "max_score": 0.9987949132919312
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "005546",
+        "num_preds": 14,
+        "class_counter": {
+          "Car": 13,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist"
+        ],
+        "mean_score": 0.940977931022644,
+        "max_score": 0.9993075132369995
+      }
+    },
+    {
+      "frame_id": "006444",
+      "candidate_score": 30.3949,
+      "CasA-V": {
+        "frame_id": "006444",
+        "num_preds": 13,
+        "class_counter": {
+          "Pedestrian": 12,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8656836152076721,
+        "max_score": 0.9925413131713867
+      },
+      "SCAFNet": {
+        "frame_id": "006444",
+        "num_preds": 11,
+        "class_counter": {
+          "Pedestrian": 10,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9050426483154297,
+        "max_score": 0.9871773719787598
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "006444",
+        "num_preds": 15,
+        "class_counter": {
+          "Pedestrian": 15
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8647050857543945,
+        "max_score": 0.9846492409706116
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "006444",
+        "num_preds": 11,
+        "class_counter": {
+          "Pedestrian": 11
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.9029743671417236,
+        "max_score": 0.994496762752533
+      }
+    },
+    {
+      "frame_id": "003211",
+      "candidate_score": 30.3814,
+      "CasA-V": {
+        "frame_id": "003211",
+        "num_preds": 9,
+        "class_counter": {
+          "Car": 8,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist"
+        ],
+        "mean_score": 0.9170616865158081,
+        "max_score": 0.9963397979736328
+      },
+      "SCAFNet": {
+        "frame_id": "003211",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9398689866065979,
+        "max_score": 0.9993925094604492
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "003211",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9228949546813965,
+        "max_score": 0.9985148310661316
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "003211",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9410867094993591,
+        "max_score": 0.9996254444122314
+      }
+    },
+    {
+      "frame_id": "006474",
+      "candidate_score": 30.3286,
+      "CasA-V": {
+        "frame_id": "006474",
+        "num_preds": 8,
+        "class_counter": {
+          "Car": 8
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9059733152389526,
+        "max_score": 0.9956700801849365
+      },
+      "SCAFNet": {
+        "frame_id": "006474",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 9,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.909018337726593,
+        "max_score": 0.9985750913619995
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "006474",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 10,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9088473916053772,
+        "max_score": 0.996857762336731
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "006474",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 10,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9147412776947021,
+        "max_score": 0.9995357990264893
+      }
+    },
+    {
+      "frame_id": "006613",
+      "candidate_score": 30.3,
+      "CasA-V": {
+        "frame_id": "006613",
+        "num_preds": 8,
+        "class_counter": {
+          "Pedestrian": 8
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8567190170288086,
+        "max_score": 0.9466477036476135
+      },
+      "SCAFNet": {
+        "frame_id": "006613",
+        "num_preds": 5,
+        "class_counter": {
+          "Pedestrian": 5
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.9104746580123901,
+        "max_score": 0.9908102750778198
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "006613",
+        "num_preds": 5,
+        "class_counter": {
+          "Pedestrian": 5
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8715459108352661,
+        "max_score": 0.9684572219848633
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "006613",
+        "num_preds": 4,
+        "class_counter": {
+          "Pedestrian": 4
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8971245884895325,
+        "max_score": 0.9528721570968628
+      }
+    },
+    {
+      "frame_id": "006925",
+      "candidate_score": 30.1115,
+      "CasA-V": {
+        "frame_id": "006925",
+        "num_preds": 10,
+        "class_counter": {
+          "Pedestrian": 9,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8533744812011719,
+        "max_score": 0.9508731961250305
+      },
+      "SCAFNet": {
+        "frame_id": "006925",
+        "num_preds": 12,
+        "class_counter": {
+          "Pedestrian": 10,
+          "Cyclist": 2
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8793222308158875,
+        "max_score": 0.9670763611793518
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "006925",
+        "num_preds": 12,
+        "class_counter": {
+          "Pedestrian": 11,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8575112819671631,
+        "max_score": 0.9597179889678955
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "006925",
+        "num_preds": 8,
+        "class_counter": {
+          "Pedestrian": 7,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8716921210289001,
+        "max_score": 0.9840462803840637
+      }
+    },
+    {
+      "frame_id": "001682",
+      "candidate_score": 30.0601,
+      "CasA-V": {
+        "frame_id": "001682",
+        "num_preds": 6,
+        "class_counter": {
+          "Car": 6
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9239120483398438,
+        "max_score": 0.9975572824478149
+      },
+      "SCAFNet": {
+        "frame_id": "001682",
+        "num_preds": 9,
+        "class_counter": {
+          "Car": 7,
+          "Pedestrian": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9066927433013916,
+        "max_score": 0.9990872144699097
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "001682",
+        "num_preds": 9,
+        "class_counter": {
+          "Car": 7,
+          "Pedestrian": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9209912419319153,
+        "max_score": 0.9981973767280579
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "001682",
+        "num_preds": 8,
+        "class_counter": {
+          "Car": 6,
+          "Pedestrian": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9307249784469604,
+        "max_score": 0.9993199110031128
+      }
+    },
+    {
+      "frame_id": "002789",
+      "candidate_score": 30.0557,
+      "CasA-V": {
+        "frame_id": "002789",
+        "num_preds": 4,
+        "class_counter": {
+          "Car": 4
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9916657209396362,
+        "max_score": 0.9984862804412842
+      },
+      "SCAFNet": {
+        "frame_id": "002789",
+        "num_preds": 6,
+        "class_counter": {
+          "Car": 5,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist"
+        ],
+        "mean_score": 0.9570732116699219,
+        "max_score": 0.9996798038482666
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "002789",
+        "num_preds": 6,
+        "class_counter": {
+          "Car": 5,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9462279677391052,
+        "max_score": 0.998572587966919
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "002789",
+        "num_preds": 7,
+        "class_counter": {
+          "Car": 5,
+          "Pedestrian": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9283223152160645,
+        "max_score": 0.9995385408401489
+      }
+    },
+    {
+      "frame_id": "000393",
+      "candidate_score": 30.0531,
+      "CasA-V": {
+        "frame_id": "000393",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 12,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8847121596336365,
+        "max_score": 0.9988588094711304
+      },
+      "SCAFNet": {
+        "frame_id": "000393",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 10
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9579343795776367,
+        "max_score": 0.999639630317688
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "000393",
+        "num_preds": 10,
+        "class_counter": {
+          "Car": 10
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9495357275009155,
+        "max_score": 0.9990400671958923
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "000393",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9268912672996521,
+        "max_score": 0.9996740818023682
+      }
+    },
+    {
+      "frame_id": "003718",
+      "candidate_score": 29.3827,
+      "CasA-V": {
+        "frame_id": "003718",
+        "num_preds": 17,
+        "class_counter": {
+          "Pedestrian": 15,
+          "Cyclist": 1,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8547679781913757,
+        "max_score": 0.9723508358001709
+      },
+      "SCAFNet": {
+        "frame_id": "003718",
+        "num_preds": 14,
+        "class_counter": {
+          "Pedestrian": 13,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.889447808265686,
+        "max_score": 0.9856414198875427
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "003718",
+        "num_preds": 18,
+        "class_counter": {
+          "Pedestrian": 16,
+          "Car": 1,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.863335907459259,
+        "max_score": 0.9773536920547485
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "003718",
+        "num_preds": 14,
+        "class_counter": {
+          "Pedestrian": 12,
+          "Cyclist": 1,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9049854278564453,
+        "max_score": 0.9863486289978027
+      }
+    },
+    {
+      "frame_id": "004496",
+      "candidate_score": 29.3814,
+      "CasA-V": {
+        "frame_id": "004496",
+        "num_preds": 9,
+        "class_counter": {
+          "Car": 9
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9371250867843628,
+        "max_score": 0.9983785152435303
+      },
+      "SCAFNet": {
+        "frame_id": "004496",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 11,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9007923603057861,
+        "max_score": 0.9991552829742432
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "004496",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9277908205986023,
+        "max_score": 0.9988442659378052
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "004496",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 11,
+          "Pedestrian": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9410325884819031,
+        "max_score": 0.9996628761291504
+      }
+    },
+    {
+      "frame_id": "006602",
+      "candidate_score": 29.3649,
+      "CasA-V": {
+        "frame_id": "006602",
+        "num_preds": 8,
+        "class_counter": {
+          "Car": 8
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9533098936080933,
+        "max_score": 0.9978255033493042
+      },
+      "SCAFNet": {
+        "frame_id": "006602",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9079509973526001,
+        "max_score": 0.9991538524627686
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "006602",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9190905094146729,
+        "max_score": 0.9981743097305298
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "006602",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9328019618988037,
+        "max_score": 0.9996670484542847
+      }
+    },
+    {
+      "frame_id": "000181",
+      "candidate_score": 29.349,
+      "CasA-V": {
+        "frame_id": "000181",
+        "num_preds": 9,
+        "class_counter": {
+          "Car": 9
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9259411692619324,
+        "max_score": 0.997600257396698
+      },
+      "SCAFNet": {
+        "frame_id": "000181",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9308518767356873,
+        "max_score": 0.9993352293968201
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "000181",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 13
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9217275381088257,
+        "max_score": 0.9983615279197693
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "000181",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9250339865684509,
+        "max_score": 0.9994532465934753
+      }
+    },
+    {
+      "frame_id": "003001",
+      "candidate_score": 29.339,
+      "CasA-V": {
+        "frame_id": "003001",
+        "num_preds": 8,
+        "class_counter": {
+          "Car": 8
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9614018201828003,
+        "max_score": 0.9985018968582153
+      },
+      "SCAFNet": {
+        "frame_id": "003001",
+        "num_preds": 12,
+        "class_counter": {
+          "Car": 12
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9058003425598145,
+        "max_score": 0.9988054037094116
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "003001",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9328460693359375,
+        "max_score": 0.9991390705108643
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "003001",
+        "num_preds": 11,
+        "class_counter": {
+          "Car": 11
+        },
+        "class_set": [
+          "Car"
+        ],
+        "mean_score": 0.9198982119560242,
+        "max_score": 0.9995879530906677
+      }
+    },
+    {
+      "frame_id": "003805",
+      "candidate_score": 29.313,
+      "CasA-V": {
+        "frame_id": "003805",
+        "num_preds": 10,
+        "class_counter": {
+          "Pedestrian": 9,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9189793467521667,
+        "max_score": 0.9856816530227661
+      },
+      "SCAFNet": {
+        "frame_id": "003805",
+        "num_preds": 13,
+        "class_counter": {
+          "Car": 1,
+          "Pedestrian": 12
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9300239086151123,
+        "max_score": 0.997955322265625
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "003805",
+        "num_preds": 14,
+        "class_counter": {
+          "Pedestrian": 13,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9033995866775513,
+        "max_score": 0.9951775074005127
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "003805",
+        "num_preds": 13,
+        "class_counter": {
+          "Pedestrian": 12,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9095607399940491,
+        "max_score": 0.9969425797462463
+      }
+    },
+    {
+      "frame_id": "006395",
+      "candidate_score": 29.053,
+      "CasA-V": {
+        "frame_id": "006395",
+        "num_preds": 12,
+        "class_counter": {
+          "Pedestrian": 11,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8775625824928284,
+        "max_score": 0.9848985075950623
+      },
+      "SCAFNet": {
+        "frame_id": "006395",
+        "num_preds": 11,
+        "class_counter": {
+          "Pedestrian": 11
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8803299069404602,
+        "max_score": 0.9890915155410767
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "006395",
+        "num_preds": 16,
+        "class_counter": {
+          "Pedestrian": 15,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8588284850120544,
+        "max_score": 0.96290123462677
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "006395",
+        "num_preds": 14,
+        "class_counter": {
+          "Pedestrian": 13,
+          "Cyclist": 1
+        },
+        "class_set": [
+          "Cyclist",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8922910690307617,
+        "max_score": 0.9842045903205872
+      }
+    },
+    {
+      "frame_id": "000595",
+      "candidate_score": 29.0204,
+      "CasA-V": {
+        "frame_id": "000595",
+        "num_preds": 7,
+        "class_counter": {
+          "Pedestrian": 5,
+          "Car": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.836845338344574,
+        "max_score": 0.9872095584869385
+      },
+      "SCAFNet": {
+        "frame_id": "000595",
+        "num_preds": 4,
+        "class_counter": {
+          "Pedestrian": 3,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9106208086013794,
+        "max_score": 0.9883350133895874
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "000595",
+        "num_preds": 6,
+        "class_counter": {
+          "Pedestrian": 4,
+          "Car": 2
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.8541536331176758,
+        "max_score": 0.9886167645454407
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "000595",
+        "num_preds": 3,
+        "class_counter": {
+          "Pedestrian": 2,
+          "Car": 1
+        },
+        "class_set": [
+          "Car",
+          "Pedestrian"
+        ],
+        "mean_score": 0.9156692624092102,
+        "max_score": 0.994512677192688
+      }
+    },
+    {
+      "frame_id": "004924",
+      "candidate_score": 28.8351,
+      "CasA-V": {
+        "frame_id": "004924",
+        "num_preds": 9,
+        "class_counter": {
+          "Pedestrian": 9
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8645374178886414,
+        "max_score": 0.8968685269355774
+      },
+      "SCAFNet": {
+        "frame_id": "004924",
+        "num_preds": 13,
+        "class_counter": {
+          "Pedestrian": 13
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8397160768508911,
+        "max_score": 0.9464912414550781
+      },
+      "CasA_V_fgsp_V1": {
+        "frame_id": "004924",
+        "num_preds": 11,
+        "class_counter": {
+          "Pedestrian": 11
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8827605843544006,
+        "max_score": 0.9480065107345581
+      },
+      "SCAF-FGSPNet": {
+        "frame_id": "004924",
+        "num_preds": 12,
+        "class_counter": {
+          "Pedestrian": 12
+        },
+        "class_set": [
+          "Pedestrian"
+        ],
+        "mean_score": 0.8753041625022888,
+        "max_score": 0.9422345757484436
+      }
+    }
+  ]
+}

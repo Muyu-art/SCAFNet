@@ -151,10 +151,10 @@ def visualize_projected_boxes(img, calib_path, boxes_lidar, names, scores, score
 # --------------------------- 4. 主流程 ---------------------------
 
 def main():
-    img_dir = '/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/data/kitti/training/image_2'
-    calib_dir = '/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/data/kitti/training/calib'
-    pkl_path = '/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet-Lab1/default/eval/eval_with_train/epoch_160/val/result.pkl'
-    out_root = '/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output_vis_img'
+    img_dir = '/home/fmm/MMDet3D/mmdetection3d/projects/CaEPNet/data/kitti/training/image_2'
+    calib_dir = '/home/fmm/MMDet3D/mmdetection3d/projects/CaEPNet/data/kitti/training/calib'
+    pkl_path = '/home/fmm/MMDet3D/mmdetection3d/projects/CaEPNet/output/kitti_models/SCAFNet-Lab1/default/eval/eval_with_train/epoch_160/val/result.pkl'
+    out_root = '/home/fmm/MMDet3D/mmdetection3d/projects/CaEPNet/output_vis_img'
 
     clean_dir = f"{out_root}/clean"
     box_dir   = f"{out_root}/boxes"

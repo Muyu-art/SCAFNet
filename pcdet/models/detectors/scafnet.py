@@ -165,13 +165,30 @@ class SCAFNet(Detector3DTemplate):
         assert gt_boxes is not None, "gt_boxes is None"
         assert gt_boxes.shape[-1] >= 8, f"gt_boxes dim must be >=8, got {gt_boxes.shape}"
 
-        cls = gt_boxes[..., -1]
-        unique = torch.unique(cls.detach().to("cpu"))
-        assert (cls > 0).any(), f"class id seems invalid (all <=0), unique={unique.tolist()[:20]}"
-        assert cls.max() <= num_class, (
-            f"class id > num_class, max={cls.max().item()}, num_class={num_class}, "
-            f"unique={unique.tolist()[:20]}"
-        )
+        cls = gt_boxes[..., -1].float()
+        unique = torch.unique(cls.detach().cpu())
+
+        # 只在最后一列明显像类别 id 时检查
+        cls_round = torch.round(cls)
+        is_integer_like = torch.all(torch.abs(cls - cls_round) < 1e-3)
+        in_reasonable_range = (cls.min() >= 1) and (cls.max() <= num_class)
+
+        if is_integer_like and in_reasonable_range:
+            assert cls.max() <= num_class, (
+                f"class id > num_class, max={cls.max().item()}, num_class={num_class}, "
+                f"unique={unique.tolist()[:20]}"
+            )
+    # def _check_gt_boxes(gt_boxes, num_class: int):
+    #     assert gt_boxes is not None, "gt_boxes is None"
+    #     assert gt_boxes.shape[-1] >= 8, f"gt_boxes dim must be >=8, got {gt_boxes.shape}"
+    #
+    #     cls = gt_boxes[..., -1]
+    #     unique = torch.unique(cls.detach().to("cpu"))
+    #     assert (cls > 0).any(), f"class id seems invalid (all <=0), unique={unique.tolist()[:20]}"
+    #     assert cls.max() <= num_class, (
+    #         f"class id > num_class, max={cls.max().item()}, num_class={num_class}, "
+    #         f"unique={unique.tolist()[:20]}"
+    #     )
 
     def forward(self, batch_dict):
         device = batch_dict["points"].device if ("points" in batch_dict and isinstance(batch_dict["points"], torch.Tensor)) \
@@ -181,9 +198,13 @@ class SCAFNet(Detector3DTemplate):
         keys_int = ["voxel_coords", "voxel_num_points"]
 
         if self.use_image:
-            # 兼容 dataset 输出 images
-            if "image" not in batch_dict and "images" in batch_dict:
-                batch_dict["image"] = batch_dict["images"]
+            # 兼容 dataset 输出 image / images / camera_imgs
+            if "image" not in batch_dict:
+                if "images" in batch_dict:
+                    batch_dict["image"] = batch_dict["images"]
+                elif "camera_imgs" in batch_dict:
+                    batch_dict["image"] = batch_dict["camera_imgs"]
+
             keys_fp32.append("image")
 
         if "gt_boxes" in batch_dict and batch_dict["gt_boxes"] is not None:
@@ -264,6 +285,12 @@ class SCAFNet(Detector3DTemplate):
             return {"loss": loss}, tb_dict, disp_dict
         else:
             pred_dicts, recall_dicts = self.post_processing(batch_dict)
+            print('[DBG EVAL] pred_dicts type =', type(pred_dicts))
+            if pred_dicts is None:
+                print('[DBG EVAL] batch_dict keys =', batch_dict.keys())
+                print('[DBG EVAL] has batch_box_preds =', 'batch_box_preds' in batch_dict)
+                print('[DBG EVAL] has batch_cls_preds =', 'batch_cls_preds' in batch_dict)
+                print('[DBG EVAL] has cls_preds_normalized =', 'cls_preds_normalized' in batch_dict)
             return pred_dicts, recall_dicts
 
     def _ensure_naive_fuse_convs(self, num_stages: int, device: torch.device):

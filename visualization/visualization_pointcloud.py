@@ -215,9 +215,9 @@ def visualize_one(bin_file, result, clean_dir, box_dir, score_thresh=0.3):
 # =========================
 if __name__ == "__main__":
 
-    bin_dir = '/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/data/kitti/training/velodyne'
-    pkl_file = '/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet-Lab1/default/eval/eval_with_train/epoch_160/val/result.pkl'
-    out_root = '/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output_vis'
+    bin_dir = '/home/fmm/MMDet3D/mmdetection3d/projects/CaEPNet/data/kitti/training/velodyne'
+    pkl_file = '/home/fmm/MMDet3D/mmdetection3d/projects/CaEPNet/output/kitti_models/SCAFNet-Lab1/default/eval/eval_with_train/epoch_160/val/result.pkl'
+    out_root = '/home/fmm/MMDet3D/mmdetection3d/projects/CaEPNet/output_vis'
 
     clean_dir = os.path.join(out_root, "clean")
     box_dir = os.path.join(out_root, "boxes")

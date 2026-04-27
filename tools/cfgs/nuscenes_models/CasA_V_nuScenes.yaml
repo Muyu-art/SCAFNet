@@ -1,37 +1,9 @@
-# =========================
-# CasA_V_nuScenes_final.yaml
-# (LiDAR-only baseline, 30 epochs)
-# =========================
-
-CLASS_NAMES: ['car','truck','construction_vehicle','bus','trailer',
-              'barrier','motorcycle','bicycle','pedestrian','traffic_cone']
+CLASS_NAMES: ['car', 'truck', 'construction_vehicle', 'bus', 'trailer',
+              'barrier', 'motorcycle', 'bicycle', 'pedestrian', 'traffic_cone']
 
 DATA_CONFIG:
     _BASE_CONFIG_: cfgs/dataset_configs/nuscenes_dataset.yaml
-
-    # 与你生成 infos/dbinfos 时的设定保持一致（也便于和 BEVFusion 对齐）
-    POINT_CLOUD_RANGE: [-54.0, -54.0, -5.0, 54.0, 54.0, 3.0]
-
-    # 保持 CasA 的 LiDAR-only pipeline：不要加 CAMERA_CONFIG / image_* processors
-    DATA_PROCESSOR:
-        - NAME: mask_points_and_boxes_outside_range
-          REMOVE_OUTSIDE_BOXES: True
-
-        - NAME: shuffle_points
-          SHUFFLE_ENABLED: {
-            'train': True,
-            'test': True
-          }
-
-        # nuScenes 常用 voxel（与你给的 BEVFusion 设定对齐）
-        - NAME: transform_points_to_voxels
-          VOXEL_SIZE: [0.075, 0.075, 0.2]
-          MAX_POINTS_PER_VOXEL: 10
-          MAX_NUMBER_OF_VOXELS: {
-            'train': 120000,
-            'test': 160000
-          }
-
+    GET_ITEM_LIST: ["points"]
 
 MODEL:
     NAME: VoxelRCNN
@@ -66,14 +38,12 @@ MODEL:
         DIR_LIMIT_OFFSET: 0.0
         NUM_DIR_BINS: 2
 
-        # nuScenes 10类：给一套“能跑通且合理”的 anchor 近似值
-        # 后续你若要极致性能，可以统计 train set 的 box 尺寸均值/分位数再微调
         ANCHOR_GENERATOR_CONFIG: [
             {
                 'class_name': 'car',
-                'anchor_sizes': [[4.7, 2.0, 1.7]],
+                'anchor_sizes': [[4.63, 1.97, 1.74]],
                 'anchor_rotations': [0, 1.57],
-                'anchor_bottom_heights': [-1.0],
+                'anchor_bottom_heights': [-0.95],
                 'align_center': False,
                 'feature_map_stride': 8,
                 'matched_threshold': 0.6,
@@ -81,49 +51,49 @@ MODEL:
             },
             {
                 'class_name': 'truck',
-                'anchor_sizes': [[10.0, 2.6, 3.2]],
+                'anchor_sizes': [[6.93, 2.51, 2.84]],
                 'anchor_rotations': [0, 1.57],
-                'anchor_bottom_heights': [-1.6],
+                'anchor_bottom_heights': [-1.30],
                 'align_center': False,
                 'feature_map_stride': 8,
                 'matched_threshold': 0.55,
-                'unmatched_threshold': 0.4
+                'unmatched_threshold': 0.40
             },
             {
                 'class_name': 'construction_vehicle',
-                'anchor_sizes': [[6.5, 2.6, 2.8]],
+                'anchor_sizes': [[6.37, 2.85, 3.19]],
                 'anchor_rotations': [0, 1.57],
-                'anchor_bottom_heights': [-1.4],
+                'anchor_bottom_heights': [-1.55],
                 'align_center': False,
                 'feature_map_stride': 8,
-                'matched_threshold': 0.55,
-                'unmatched_threshold': 0.4
+                'matched_threshold': 0.5,
+                'unmatched_threshold': 0.35
             },
             {
                 'class_name': 'bus',
-                'anchor_sizes': [[12.0, 2.8, 3.3]],
+                'anchor_sizes': [[10.50, 2.94, 3.47]],
                 'anchor_rotations': [0, 1.57],
-                'anchor_bottom_heights': [-1.7],
+                'anchor_bottom_heights': [-1.55],
                 'align_center': False,
                 'feature_map_stride': 8,
                 'matched_threshold': 0.55,
-                'unmatched_threshold': 0.4
+                'unmatched_threshold': 0.40
             },
             {
                 'class_name': 'trailer',
-                'anchor_sizes': [[12.5, 2.9, 3.3]],
+                'anchor_sizes': [[12.29, 2.90, 3.87]],
                 'anchor_rotations': [0, 1.57],
-                'anchor_bottom_heights': [-1.7],
+                'anchor_bottom_heights': [-1.60],
                 'align_center': False,
                 'feature_map_stride': 8,
-                'matched_threshold': 0.55,
-                'unmatched_threshold': 0.4
+                'matched_threshold': 0.5,
+                'unmatched_threshold': 0.35
             },
             {
                 'class_name': 'barrier',
-                'anchor_sizes': [[2.0, 0.6, 1.0]],
+                'anchor_sizes': [[0.50, 2.53, 0.98]],
                 'anchor_rotations': [0, 1.57],
-                'anchor_bottom_heights': [-0.5],
+                'anchor_bottom_heights': [-0.55],
                 'align_center': False,
                 'feature_map_stride': 8,
                 'matched_threshold': 0.5,
@@ -131,9 +101,9 @@ MODEL:
             },
             {
                 'class_name': 'motorcycle',
-                'anchor_sizes': [[2.2, 0.9, 1.6]],
+                'anchor_sizes': [[2.11, 0.77, 1.47]],
                 'anchor_rotations': [0, 1.57],
-                'anchor_bottom_heights': [-0.8],
+                'anchor_bottom_heights': [-0.60],
                 'align_center': False,
                 'feature_map_stride': 8,
                 'matched_threshold': 0.5,
@@ -141,9 +111,9 @@ MODEL:
             },
             {
                 'class_name': 'bicycle',
-                'anchor_sizes': [[1.8, 0.7, 1.5]],
+                'anchor_sizes': [[1.70, 0.60, 1.28]],
                 'anchor_rotations': [0, 1.57],
-                'anchor_bottom_heights': [-0.75],
+                'anchor_bottom_heights': [-0.60],
                 'align_center': False,
                 'feature_map_stride': 8,
                 'matched_threshold': 0.5,
@@ -151,9 +121,9 @@ MODEL:
             },
             {
                 'class_name': 'pedestrian',
-                'anchor_sizes': [[0.8, 0.8, 1.7]],
+                'anchor_sizes': [[0.73, 0.67, 1.77]],
                 'anchor_rotations': [0, 1.57],
-                'anchor_bottom_heights': [-0.85],
+                'anchor_bottom_heights': [-0.90],
                 'align_center': False,
                 'feature_map_stride': 8,
                 'matched_threshold': 0.5,
@@ -161,21 +131,20 @@ MODEL:
             },
             {
                 'class_name': 'traffic_cone',
-                'anchor_sizes': [[0.6, 0.6, 1.0]],
+                'anchor_sizes': [[0.41, 0.41, 1.07]],
                 'anchor_rotations': [0, 1.57],
-                'anchor_bottom_heights': [-0.5],
+                'anchor_bottom_heights': [-0.50],
                 'align_center': False,
                 'feature_map_stride': 8,
-                'matched_threshold': 0.45,
-                'unmatched_threshold': 0.3
+                'matched_threshold': 0.5,
+                'unmatched_threshold': 0.35
             }
         ]
 
         TARGET_ASSIGNER_CONFIG:
             NAME: AxisAlignedTargetAssigner
             POS_FRACTION: -1.0
-            # nuScenes候选更密，适当加大 sample size 更稳
-            SAMPLE_SIZE: 1024
+            SAMPLE_SIZE: 512
             NORM_BY_NUM_EXAMPLES: False
             MATCH_HEIGHT: False
             BOX_CODER: ResidualCoder
@@ -196,10 +165,8 @@ MODEL:
         PART:
             IN_CHANNEL: 256
             SIZE: 7
-            # nuScenes x/y range = [-54, 54]，offset 用 abs(min) 的常见写法
-            GRID_OFFSETS: [54., 54.]
-            # voxel_xy=0.075，backbone stride=8 => 0.6
-            FEATMAP_STRIDE: 0.6
+            GRID_OFFSETS: [0., 40.]
+            FEATMAP_STRIDE: 0.4
 
         SHARED_FC: [256, 256]
         CLS_FC: [256, 256]
@@ -210,17 +177,17 @@ MODEL:
             TRAIN:
                 NMS_TYPE: nms_gpu
                 MULTI_CLASSES_NMS: False
-                NMS_PRE_MAXSIZE: 4096
-                NMS_POST_MAXSIZE: 1024
+                NMS_PRE_MAXSIZE: 4000
+                NMS_POST_MAXSIZE: 512
                 NMS_THRESH: 0.8
             TEST:
                 NMS_TYPE: nms_gpu
                 MULTI_CLASSES_NMS: False
                 USE_FAST_NMS: True
-                SCORE_THRESH: 0.0
-                NMS_PRE_MAXSIZE: 4096
-                NMS_POST_MAXSIZE: 200
-                NMS_THRESH: 0.75
+                SCORE_THRESH: 0.05
+                NMS_PRE_MAXSIZE: 4000
+                NMS_POST_MAXSIZE: 150
+                NMS_THRESH: 0.2
 
         ROI_GRID_POOL:
             FEATURES_SOURCE: ['x_conv3','x_conv4']
@@ -230,52 +197,50 @@ MODEL:
                 x_conv3:
                     MLPS: [[32, 32], [32, 32]]
                     QUERY_RANGES: [[2, 2, 2], [4, 4, 4]]
-                    # stride 从 0.4 -> 0.6，radius 对应放大
-                    POOL_RADIUS: [0.6, 1.2]
+                    POOL_RADIUS: [0.4, 0.8]
                     NSAMPLE: [16, 16]
                     POOL_METHOD: max_pool
                 x_conv4:
                     MLPS: [[32, 32], [32, 32]]
                     QUERY_RANGES: [[2, 2, 2], [4, 4, 4]]
-                    POOL_RADIUS: [1.2, 2.4]
+                    POOL_RADIUS: [0.8, 1.6]
                     NSAMPLE: [16, 16]
                     POOL_METHOD: max_pool
 
         TARGET_CONFIG:
             BOX_CODER: ResidualCoder
-
             STAGE0:
-                ROI_PER_IMAGE: 256
+                ROI_PER_IMAGE: 160
                 FG_RATIO: 0.5
                 SAMPLE_ROI_BY_EACH_CLASS: True
                 CLS_SCORE_TYPE: roi_iou_x
-                CLS_FG_THRESH: [0.75,0.70,0.70,0.70,0.70, 0.65,0.65,0.65,0.65,0.65]
-                CLS_BG_THRESH: [0.25,0.20,0.20,0.20,0.20, 0.15,0.15,0.15,0.15,0.15]
+                CLS_FG_THRESH: [0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75]
+                CLS_BG_THRESH: [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25]
                 CLS_BG_THRESH_LO: 0.1
                 HARD_BG_RATIO: 0.8
-                REG_FG_THRESH: [0.50,0.45,0.45,0.45,0.45, 0.40,0.40,0.40,0.40,0.40]
+                REG_FG_THRESH: [0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50, 0.50]
 
             STAGE1:
-                ROI_PER_IMAGE: 256
+                ROI_PER_IMAGE: 160
                 FG_RATIO: 0.5
                 SAMPLE_ROI_BY_EACH_CLASS: True
                 CLS_SCORE_TYPE: roi_iou_x
-                CLS_FG_THRESH: [0.75,0.70,0.70,0.70,0.70, 0.65,0.65,0.65,0.65,0.65]
-                CLS_BG_THRESH: [0.25,0.20,0.20,0.20,0.20, 0.15,0.15,0.15,0.15,0.15]
+                CLS_FG_THRESH: [0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75]
+                CLS_BG_THRESH: [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25]
                 CLS_BG_THRESH_LO: 0.1
                 HARD_BG_RATIO: 0.8
-                REG_FG_THRESH: [0.55,0.50,0.50,0.50,0.50, 0.45,0.45,0.45,0.45,0.45]
+                REG_FG_THRESH: [0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55, 0.55]
 
             STAGE2:
-                ROI_PER_IMAGE: 256
+                ROI_PER_IMAGE: 160
                 FG_RATIO: 0.5
                 SAMPLE_ROI_BY_EACH_CLASS: True
                 CLS_SCORE_TYPE: roi_iou_x
-                CLS_FG_THRESH: [0.75,0.70,0.70,0.70,0.70, 0.65,0.65,0.65,0.65,0.65]
-                CLS_BG_THRESH: [0.25,0.20,0.20,0.20,0.20, 0.15,0.15,0.15,0.15,0.15]
+                CLS_FG_THRESH: [0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75]
+                CLS_BG_THRESH: [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25]
                 CLS_BG_THRESH_LO: 0.1
                 HARD_BG_RATIO: 0.8
-                REG_FG_THRESH: [0.60,0.55,0.55,0.55,0.55, 0.50,0.50,0.50,0.50,0.50]
+                REG_FG_THRESH: [0.60, 0.60, 0.60, 0.60, 0.60, 0.60, 0.60, 0.60, 0.60, 0.60]
 
         LOSS_CONFIG:
             CLS_LOSS: BinaryCrossEntropy
@@ -292,41 +257,34 @@ MODEL:
 
     POST_PROCESSING:
         RECALL_THRESH_LIST: [0.3, 0.5, 0.7]
-        # nuScenes 评估建议放开阈值，避免误过滤
-        SCORE_THRESH: 0.0
+        SCORE_THRESH: 0.05
         OUTPUT_RAW_SCORE: False
-
         EVAL_METRIC: nuscenes
 
         NMS_CONFIG:
             MULTI_CLASSES_NMS: False
             NMS_TYPE: nms_gpu
-            # nuScenes 场景密集，适当调高一些更稳（你也可以保守用 0.1）
             NMS_THRESH: 0.2
             NMS_PRE_MAXSIZE: 4096
             NMS_POST_MAXSIZE: 500
 
-
 OPTIMIZATION:
     BATCH_SIZE_PER_GPU: 2
-    # ✅ final：统一到 30 epoch 便于四方法公平对比
-    NUM_EPOCHS: 30
+    NUM_EPOCHS: 6
 
     OPTIMIZER: adam_onecycle
-    # nuScenes + 更大 voxel + 更多类：LR 保守一点更稳
-    LR: 0.003
+    LR: 0.008
     WEIGHT_DECAY: 0.01
     MOMENTUM: 0.9
 
     MOMS: [0.95, 0.85]
     PCT_START: 0.4
     DIV_FACTOR: 10
-    # ✅ final：更贴合 30 epoch 的 decay 位置
-    DECAY_STEP_LIST: [15, 25]
+    DECAY_STEP_LIST: [35, 45]
     LR_DECAY: 0.1
     LR_CLIP: 0.0000001
 
-    LR_WARMUP: False
+    LR_WARMUP: True
     WARMUP_EPOCH: 1
 
     GRAD_NORM_CLIP: 10

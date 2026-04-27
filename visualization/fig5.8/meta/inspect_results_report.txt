@@ -1,0 +1,5098 @@
+Root: /home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models
+Models: ['CasA-V', 'SCAFNet', 'CasA_V_fgsp_V1', 'SCAF-FGSPNet']
+
+====================================================================================================
+[MODEL] CasA-V
+====================================================================================================
+/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V
+└── default/
+    ├── ckpt/
+    │   ├── checkpoint_epoch_51.pth
+    │   ├── checkpoint_epoch_52.pth
+    │   ├── checkpoint_epoch_53.pth
+    │   ├── checkpoint_epoch_54.pth
+    │   ├── checkpoint_epoch_55.pth
+    │   ├── checkpoint_epoch_56.pth
+    │   ├── checkpoint_epoch_57.pth
+    │   ├── checkpoint_epoch_58.pth
+    │   ├── checkpoint_epoch_59.pth
+    │   ├── checkpoint_epoch_60.pth
+    │   ├── checkpoint_epoch_61.pth
+    │   ├── checkpoint_epoch_62.pth
+    │   ├── checkpoint_epoch_63.pth
+    │   ├── checkpoint_epoch_64.pth
+    │   ├── checkpoint_epoch_65.pth
+    │   ├── checkpoint_epoch_66.pth
+    │   ├── checkpoint_epoch_67.pth
+    │   ├── checkpoint_epoch_68.pth
+    │   ├── checkpoint_epoch_69.pth
+    │   ├── checkpoint_epoch_70.pth
+    │   ├── checkpoint_epoch_71.pth
+    │   ├── checkpoint_epoch_72.pth
+    │   ├── checkpoint_epoch_73.pth
+    │   ├── checkpoint_epoch_74.pth
+    │   ├── checkpoint_epoch_75.pth
+    │   └── ... (5 more entries)
+    ├── eval/
+    │   └── eval_with_train/
+    ├── tensorboard/
+    │   ├── events.out.tfevents.1745910728.dell4090-1
+    │   ├── events.out.tfevents.1769957628.dell-4090-1
+    │   ├── events.out.tfevents.1769957675.dell-4090-1
+    │   ├── events.out.tfevents.1769957706.dell-4090-1
+    │   ├── events.out.tfevents.1769958628.dell-4090-1
+    │   └── events.out.tfevents.1769958691.dell-4090-1
+    ├── CasA-V.yaml
+    ├── log_train_20250429-151208.txt
+    ├── log_train_20260201-225348.txt
+    ├── log_train_20260201-225435.txt
+    ├── log_train_20260201-225506.txt
+    ├── log_train_20260201-231028.txt
+    └── log_train_20260201-231131.txt
+
+[2] File Type Statistics
+  .pth       : 30
+  .pkl       : 11
+  .txt       : 7
+  .dell-4090-1 : 6
+  .yaml      : 1
+  .dell4090-1 : 1
+
+[3] Candidate Result Files
+  default/eval/eval_with_train/epoch_70/val/result.pkl
+  default/eval/eval_with_train/epoch_71/val/result.pkl
+  default/eval/eval_with_train/epoch_72/val/result.pkl
+  default/eval/eval_with_train/epoch_73/val/result.pkl
+  default/eval/eval_with_train/epoch_74/val/result.pkl
+  default/eval/eval_with_train/epoch_75/val/result.pkl
+  default/eval/eval_with_train/epoch_76/val/result.pkl
+  default/eval/eval_with_train/epoch_77/val/result.pkl
+  default/eval/eval_with_train/epoch_78/val/result.pkl
+  default/eval/eval_with_train/epoch_79/val/result.pkl
+  default/eval/eval_with_train/epoch_80/val/result.pkl
+  default/eval/eval_with_train/eval_list_val.txt
+  default/eval/eval_with_train/tensorboard_val/events.out.tfevents.1770007039.dell-4090-1
+
+[4] Deep Inspection
+
+--- default/eval/eval_with_train/epoch_70/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V/default/eval/eval_with_train/epoch_70/val/result.pkl",
+  "size": "3.83MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_71/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V/default/eval/eval_with_train/epoch_71/val/result.pkl",
+  "size": "3.77MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_72/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V/default/eval/eval_with_train/epoch_72/val/result.pkl",
+  "size": "3.80MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_73/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V/default/eval/eval_with_train/epoch_73/val/result.pkl",
+  "size": "3.76MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_74/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V/default/eval/eval_with_train/epoch_74/val/result.pkl",
+  "size": "3.79MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_75/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V/default/eval/eval_with_train/epoch_75/val/result.pkl",
+  "size": "3.85MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_76/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V/default/eval/eval_with_train/epoch_76/val/result.pkl",
+  "size": "3.79MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_77/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V/default/eval/eval_with_train/epoch_77/val/result.pkl",
+  "size": "3.81MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_78/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V/default/eval/eval_with_train/epoch_78/val/result.pkl",
+  "size": "3.82MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_79/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V/default/eval/eval_with_train/epoch_79/val/result.pkl",
+  "size": "3.85MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_80/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V/default/eval/eval_with_train/epoch_80/val/result.pkl",
+  "size": "3.83MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/eval_list_val.txt ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA-V/default/eval/eval_with_train/eval_list_val.txt",
+  "size": "66.00B",
+  "content": {
+    "type": "txt",
+    "preview": [
+      "70",
+      "70",
+      "71",
+      "71",
+      "72",
+      "72",
+      "73",
+      "73",
+      "74",
+      "74",
+      "75",
+      "75",
+      "76",
+      "76",
+      "77",
+      "77",
+      "78",
+      "78",
+      "79",
+      "79"
+    ]
+  }
+}
+====================================================================================================
+[MODEL] SCAFNet
+====================================================================================================
+/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet
+└── default/
+    ├── ckpt/
+    │   ├── checkpoint_epoch_100.pth
+    │   ├── checkpoint_epoch_101.pth
+    │   ├── checkpoint_epoch_102.pth
+    │   ├── checkpoint_epoch_103.pth
+    │   ├── checkpoint_epoch_104.pth
+    │   ├── checkpoint_epoch_105.pth
+    │   ├── checkpoint_epoch_106.pth
+    │   ├── checkpoint_epoch_107.pth
+    │   ├── checkpoint_epoch_108.pth
+    │   ├── checkpoint_epoch_109.pth
+    │   ├── checkpoint_epoch_110.pth
+    │   ├── checkpoint_epoch_111.pth
+    │   ├── checkpoint_epoch_112.pth
+    │   ├── checkpoint_epoch_113.pth
+    │   ├── checkpoint_epoch_114.pth
+    │   ├── checkpoint_epoch_115.pth
+    │   ├── checkpoint_epoch_116.pth
+    │   ├── checkpoint_epoch_117.pth
+    │   ├── checkpoint_epoch_118.pth
+    │   ├── checkpoint_epoch_119.pth
+    │   ├── checkpoint_epoch_120.pth
+    │   ├── checkpoint_epoch_91.pth
+    │   ├── checkpoint_epoch_92.pth
+    │   ├── checkpoint_epoch_93.pth
+    │   ├── checkpoint_epoch_94.pth
+    │   └── ... (5 more entries)
+    ├── eval/
+    │   └── eval_with_train/
+    ├── tensorboard/
+    │   ├── check_tag.py
+    │   └── events.out.tfevents.1770008966.dell-4090-1
+    ├── log_train_20260202-130926.txt
+    └── SCAFNet.yaml
+
+[2] File Type Statistics
+  .pth       : 30
+  .pkl       : 11
+  .txt       : 2
+  .dell-4090-1 : 2
+  .yaml      : 1
+  .py        : 1
+
+[3] Candidate Result Files
+  default/eval/eval_with_train/epoch_110/val/result.pkl
+  default/eval/eval_with_train/epoch_111/val/result.pkl
+  default/eval/eval_with_train/epoch_112/val/result.pkl
+  default/eval/eval_with_train/epoch_113/val/result.pkl
+  default/eval/eval_with_train/epoch_114/val/result.pkl
+  default/eval/eval_with_train/epoch_115/val/result.pkl
+  default/eval/eval_with_train/epoch_116/val/result.pkl
+  default/eval/eval_with_train/epoch_117/val/result.pkl
+  default/eval/eval_with_train/epoch_118/val/result.pkl
+  default/eval/eval_with_train/epoch_119/val/result.pkl
+  default/eval/eval_with_train/epoch_120/val/result.pkl
+  default/eval/eval_with_train/eval_list_val.txt
+  default/eval/eval_with_train/tensorboard_val/events.out.tfevents.1770081647.dell-4090-1
+
+[4] Deep Inspection
+
+--- default/eval/eval_with_train/epoch_110/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet/default/eval/eval_with_train/epoch_110/val/result.pkl",
+  "size": "3.87MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_111/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet/default/eval/eval_with_train/epoch_111/val/result.pkl",
+  "size": "3.87MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_112/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet/default/eval/eval_with_train/epoch_112/val/result.pkl",
+  "size": "3.87MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_113/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet/default/eval/eval_with_train/epoch_113/val/result.pkl",
+  "size": "3.90MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_114/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet/default/eval/eval_with_train/epoch_114/val/result.pkl",
+  "size": "3.90MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_115/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet/default/eval/eval_with_train/epoch_115/val/result.pkl",
+  "size": "3.89MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_116/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet/default/eval/eval_with_train/epoch_116/val/result.pkl",
+  "size": "3.89MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_117/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet/default/eval/eval_with_train/epoch_117/val/result.pkl",
+  "size": "3.88MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_118/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet/default/eval/eval_with_train/epoch_118/val/result.pkl",
+  "size": "3.90MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_119/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet/default/eval/eval_with_train/epoch_119/val/result.pkl",
+  "size": "3.92MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_120/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet/default/eval/eval_with_train/epoch_120/val/result.pkl",
+  "size": "3.87MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/eval_list_val.txt ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAFNet/default/eval/eval_with_train/eval_list_val.txt",
+  "size": "88.00B",
+  "content": {
+    "type": "txt",
+    "preview": [
+      "110",
+      "110",
+      "111",
+      "111",
+      "112",
+      "112",
+      "113",
+      "113",
+      "114",
+      "114",
+      "115",
+      "115",
+      "116",
+      "116",
+      "117",
+      "117",
+      "118",
+      "118",
+      "119",
+      "119"
+    ]
+  }
+}
+====================================================================================================
+[MODEL] CasA_V_fgsp_V1
+====================================================================================================
+/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1
+└── default/
+    ├── ckpt/
+    │   ├── checkpoint_epoch_51.pth
+    │   ├── checkpoint_epoch_52.pth
+    │   ├── checkpoint_epoch_53.pth
+    │   ├── checkpoint_epoch_54.pth
+    │   ├── checkpoint_epoch_55.pth
+    │   ├── checkpoint_epoch_56.pth
+    │   ├── checkpoint_epoch_57.pth
+    │   ├── checkpoint_epoch_58.pth
+    │   ├── checkpoint_epoch_59.pth
+    │   ├── checkpoint_epoch_60.pth
+    │   ├── checkpoint_epoch_61.pth
+    │   ├── checkpoint_epoch_62.pth
+    │   ├── checkpoint_epoch_63.pth
+    │   ├── checkpoint_epoch_64.pth
+    │   ├── checkpoint_epoch_65.pth
+    │   ├── checkpoint_epoch_66.pth
+    │   ├── checkpoint_epoch_67.pth
+    │   ├── checkpoint_epoch_68.pth
+    │   ├── checkpoint_epoch_69.pth
+    │   ├── checkpoint_epoch_70.pth
+    │   ├── checkpoint_epoch_71.pth
+    │   ├── checkpoint_epoch_72.pth
+    │   ├── checkpoint_epoch_73.pth
+    │   ├── checkpoint_epoch_74.pth
+    │   ├── checkpoint_epoch_75.pth
+    │   └── ... (5 more entries)
+    ├── eval/
+    │   └── eval_with_train/
+    ├── tensorboard/
+    │   └── events.out.tfevents.1770505365.dell-4090-1
+    ├── CasA_V_fgsp_V1.yaml
+    └── log_train_20260208-070245.txt
+
+[2] File Type Statistics
+  .pth       : 30
+  .pkl       : 11
+  .txt       : 2
+  .dell-4090-1 : 2
+  .yaml      : 1
+
+[3] Candidate Result Files
+  default/CasA_V_fgsp_V1.yaml
+  default/eval/eval_with_train/epoch_70/val/result.pkl
+  default/eval/eval_with_train/epoch_71/val/result.pkl
+  default/eval/eval_with_train/epoch_72/val/result.pkl
+  default/eval/eval_with_train/epoch_73/val/result.pkl
+  default/eval/eval_with_train/epoch_74/val/result.pkl
+  default/eval/eval_with_train/epoch_75/val/result.pkl
+  default/eval/eval_with_train/epoch_76/val/result.pkl
+  default/eval/eval_with_train/epoch_77/val/result.pkl
+  default/eval/eval_with_train/epoch_78/val/result.pkl
+  default/eval/eval_with_train/epoch_79/val/result.pkl
+  default/eval/eval_with_train/epoch_80/val/result.pkl
+  default/eval/eval_with_train/eval_list_val.txt
+  default/eval/eval_with_train/tensorboard_val/events.out.tfevents.1770547648.dell-4090-1
+
+[4] Deep Inspection
+
+--- default/eval/eval_with_train/epoch_70/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1/default/eval/eval_with_train/epoch_70/val/result.pkl",
+  "size": "3.95MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_71/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1/default/eval/eval_with_train/epoch_71/val/result.pkl",
+  "size": "4.00MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_72/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1/default/eval/eval_with_train/epoch_72/val/result.pkl",
+  "size": "4.01MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              2
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              2,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_73/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1/default/eval/eval_with_train/epoch_73/val/result.pkl",
+  "size": "3.98MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_74/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1/default/eval/eval_with_train/epoch_74/val/result.pkl",
+  "size": "3.98MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_75/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1/default/eval/eval_with_train/epoch_75/val/result.pkl",
+  "size": "3.98MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_76/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1/default/eval/eval_with_train/epoch_76/val/result.pkl",
+  "size": "4.01MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_77/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1/default/eval/eval_with_train/epoch_77/val/result.pkl",
+  "size": "3.98MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_78/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1/default/eval/eval_with_train/epoch_78/val/result.pkl",
+  "size": "3.93MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_79/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1/default/eval/eval_with_train/epoch_79/val/result.pkl",
+  "size": "4.06MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_80/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1/default/eval/eval_with_train/epoch_80/val/result.pkl",
+  "size": "3.97MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/eval_list_val.txt ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/CasA_V_fgsp_V1/default/eval/eval_with_train/eval_list_val.txt",
+  "size": "66.00B",
+  "content": {
+    "type": "txt",
+    "preview": [
+      "70",
+      "70",
+      "71",
+      "71",
+      "72",
+      "72",
+      "73",
+      "73",
+      "74",
+      "74",
+      "75",
+      "75",
+      "76",
+      "76",
+      "77",
+      "77",
+      "78",
+      "78",
+      "79",
+      "79"
+    ]
+  }
+}
+====================================================================================================
+[MODEL] SCAF-FGSPNet
+====================================================================================================
+/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet
+└── default/
+    ├── ckpt/
+    │   ├── checkpoint_epoch_100.pth
+    │   ├── checkpoint_epoch_101.pth
+    │   ├── checkpoint_epoch_102.pth
+    │   ├── checkpoint_epoch_103.pth
+    │   ├── checkpoint_epoch_104.pth
+    │   ├── checkpoint_epoch_105.pth
+    │   ├── checkpoint_epoch_106.pth
+    │   ├── checkpoint_epoch_107.pth
+    │   ├── checkpoint_epoch_108.pth
+    │   ├── checkpoint_epoch_109.pth
+    │   ├── checkpoint_epoch_110.pth
+    │   ├── checkpoint_epoch_111.pth
+    │   ├── checkpoint_epoch_112.pth
+    │   ├── checkpoint_epoch_113.pth
+    │   ├── checkpoint_epoch_114.pth
+    │   ├── checkpoint_epoch_115.pth
+    │   ├── checkpoint_epoch_116.pth
+    │   ├── checkpoint_epoch_117.pth
+    │   ├── checkpoint_epoch_118.pth
+    │   ├── checkpoint_epoch_119.pth
+    │   ├── checkpoint_epoch_120.pth
+    │   ├── checkpoint_epoch_91.pth
+    │   ├── checkpoint_epoch_92.pth
+    │   ├── checkpoint_epoch_93.pth
+    │   ├── checkpoint_epoch_94.pth
+    │   └── ... (5 more entries)
+    ├── eval/
+    │   └── eval_with_train/
+    ├── tensorboard/
+    │   └── events.out.tfevents.1771004259.dell-4090-1
+    ├── log_train_20260214-013739.txt
+    └── SCAF-FGSPNet.yaml
+
+[2] File Type Statistics
+  .pth       : 30
+  .pkl       : 11
+  .txt       : 2
+  .dell-4090-1 : 2
+  .yaml      : 1
+
+[3] Candidate Result Files
+  default/SCAF-FGSPNet.yaml
+  default/eval/eval_with_train/epoch_110/val/result.pkl
+  default/eval/eval_with_train/epoch_111/val/result.pkl
+  default/eval/eval_with_train/epoch_112/val/result.pkl
+  default/eval/eval_with_train/epoch_113/val/result.pkl
+  default/eval/eval_with_train/epoch_114/val/result.pkl
+  default/eval/eval_with_train/epoch_115/val/result.pkl
+  default/eval/eval_with_train/epoch_116/val/result.pkl
+  default/eval/eval_with_train/epoch_117/val/result.pkl
+  default/eval/eval_with_train/epoch_118/val/result.pkl
+  default/eval/eval_with_train/epoch_119/val/result.pkl
+  default/eval/eval_with_train/epoch_120/val/result.pkl
+  default/eval/eval_with_train/eval_list_val.txt
+  default/eval/eval_with_train/tensorboard_val/events.out.tfevents.1771077989.dell-4090-1
+
+[4] Deep Inspection
+
+--- default/eval/eval_with_train/epoch_110/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet/default/eval/eval_with_train/epoch_110/val/result.pkl",
+  "size": "3.85MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_111/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet/default/eval/eval_with_train/epoch_111/val/result.pkl",
+  "size": "3.86MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              4
+            ],
+            "dtype": "float64"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              7
+            ],
+            "dtype": "float64"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_112/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet/default/eval/eval_with_train/epoch_112/val/result.pkl",
+  "size": "3.84MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              4
+            ],
+            "dtype": "float64"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              7
+            ],
+            "dtype": "float64"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_113/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet/default/eval/eval_with_train/epoch_113/val/result.pkl",
+  "size": "3.87MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "<U10"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              3
+            ],
+            "dtype": "float32"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              1
+            ],
+            "dtype": "float32"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              1,
+              7
+            ],
+            "dtype": "float32"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_114/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet/default/eval/eval_with_train/epoch_114/val/result.pkl",
+  "size": "3.81MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              4
+            ],
+            "dtype": "float64"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              7
+            ],
+            "dtype": "float64"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_115/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet/default/eval/eval_with_train/epoch_115/val/result.pkl",
+  "size": "3.85MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              4
+            ],
+            "dtype": "float64"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              7
+            ],
+            "dtype": "float64"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_116/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet/default/eval/eval_with_train/epoch_116/val/result.pkl",
+  "size": "3.84MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              4
+            ],
+            "dtype": "float64"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              7
+            ],
+            "dtype": "float64"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_117/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet/default/eval/eval_with_train/epoch_117/val/result.pkl",
+  "size": "3.86MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              4
+            ],
+            "dtype": "float64"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              7
+            ],
+            "dtype": "float64"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_118/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet/default/eval/eval_with_train/epoch_118/val/result.pkl",
+  "size": "3.86MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              4
+            ],
+            "dtype": "float64"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              7
+            ],
+            "dtype": "float64"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_119/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet/default/eval/eval_with_train/epoch_119/val/result.pkl",
+  "size": "3.87MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              4
+            ],
+            "dtype": "float64"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              7
+            ],
+            "dtype": "float64"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/epoch_120/val/result.pkl ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet/default/eval/eval_with_train/epoch_120/val/result.pkl",
+  "size": "3.82MB",
+  "content": {
+    "type": "pkl",
+    "python_type": "list",
+    "summary": {
+      "__type__": "list",
+      "__len__": 3768,
+      "first_item": {
+        "__type__": "dict",
+        "__len__": 11,
+        "keys": [
+          "name",
+          "truncated",
+          "occluded",
+          "alpha",
+          "bbox",
+          "dimensions",
+          "location",
+          "rotation_y",
+          "score",
+          "boxes_lidar",
+          "frame_id"
+        ],
+        "sample_detail": {
+          "name": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "truncated": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "occluded": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "alpha": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "bbox": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              4
+            ],
+            "dtype": "float64"
+          },
+          "dimensions": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "location": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              3
+            ],
+            "dtype": "float64"
+          },
+          "rotation_y": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "score": {
+            "__type__": "ndarray",
+            "shape": [
+              0
+            ],
+            "dtype": "float64"
+          },
+          "boxes_lidar": {
+            "__type__": "ndarray",
+            "shape": [
+              0,
+              7
+            ],
+            "dtype": "float64"
+          }
+        }
+      }
+    }
+  }
+}
+
+--- default/eval/eval_with_train/eval_list_val.txt ---
+{
+  "path": "/home/fmm/MMDet3D/mmdetection3d/projects/SCAFNet/output/kitti_models/SCAF-FGSPNet/default/eval/eval_with_train/eval_list_val.txt",
+  "size": "88.00B",
+  "content": {
+    "type": "txt",
+    "preview": [
+      "110",
+      "110",
+      "111",
+      "111",
+      "112",
+      "112",
+      "113",
+      "113",
+      "114",
+      "114",
+      "115",
+      "115",
+      "116",
+      "116",
+      "117",
+      "117",
+      "118",
+      "118",
+      "119",
+      "119"
+    ]
+  }
+}

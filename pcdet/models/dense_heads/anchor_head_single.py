@@ -330,32 +330,87 @@ class AnchorHeadSingle(AnchorHeadTemplate):
     def forward(self, data_dict):
 
         anchor_mask = self.get_anchor_mask(data_dict,data_dict['st_features_2d'].shape)
+        dir_cls_preds = None
 
         new_anchors = []
         for anchors in self.anchors_root:
+            if anchor_mask is not None:
+                H_a, W_a = anchors.shape[1], anchors.shape[2]
+                H_m, W_m = anchor_mask.shape[0], anchor_mask.shape[1]
+
+                if (H_m != H_a) or (W_m != W_a):
+                    H = min(H_m, H_a)
+                    W = min(W_m, W_a)
+
+                    # crop both to common size
+                    anchor_mask = anchor_mask[:H, :W]
+                    anchors = anchors[:, :H, :W, ...]
+
             new_anchors.append(anchors[:, anchor_mask, ...])
 
         self.anchors = new_anchors
 
         for i in range(self.num_frames):
-            if i==0:
+            if i == 0:
                 st_features_2d = data_dict['st_features_2d']
 
-                cls_preds = self.conv_cls(st_features_2d)
-                box_preds = self.conv_box(st_features_2d)
+                # 0) 先算出原始预测（B,C,H,W）
+                cls_preds = self.conv_cls(st_features_2d)  # [B, Cc, H, W]
+                box_preds = self.conv_box(st_features_2d)  # [B, Cr, H, W]
+                dir_cls_preds = self.conv_dir_cls(
+                    st_features_2d) if self.conv_dir_cls is not None else None  # [B, Cd, H, W] or None
 
-                cls_preds = cls_preds.permute(0, 2, 3, 1).contiguous()[:,anchor_mask,:]  # [N, H, W, C]
-                box_preds = box_preds.permute(0, 2, 3, 1).contiguous()[:,anchor_mask,:]  # [N, H, W, C]
+                # 1) 以 cls_preds 的 (H,W) 为“真相”
+                H_p, W_p = cls_preds.shape[2], cls_preds.shape[3]
 
+                # 2) 生成 anchor_mask（一定要在同一个 device 上）
+                anchor_mask = self.get_anchor_mask(data_dict, st_features_2d.shape).to(
+                    cls_preds.device)  # [H_mask, W_mask] bool
+                H_m, W_m = anchor_mask.shape
+
+                # 3) 取 anchors_root 的 grid size（用第一个即可，所有类一致）
+                a0 = self.anchors_root[0]  # [1, H_a, W_a, ...]
+                H_a, W_a = a0.shape[1], a0.shape[2]
+
+                # 4) 统一 (H,W) = 三者的 min，彻底根治 127/128 这种 off-by-one
+                H = min(H_p, H_m, H_a)
+                W = min(W_p, W_m, W_a)
+
+                # 5) crop mask / preds / (dir) 到统一 H,W
+                anchor_mask = anchor_mask[:H, :W]
+                cls_preds = cls_preds[:, :, :H, :W]
+                box_preds = box_preds[:, :, :H, :W]
+                if dir_cls_preds is not None:
+                    dir_cls_preds = dir_cls_preds[:, :, :H, :W]
+
+                # 6) flatten mask + flatten preds（正确的索引方式）
+                anchor_mask_flat = anchor_mask.reshape(-1)  # [H*W]
+
+                cls_preds = cls_preds.permute(0, 2, 3, 1).contiguous().view(cls_preds.shape[0], -1, cls_preds.shape[1])
+                box_preds = box_preds.permute(0, 2, 3, 1).contiguous().view(box_preds.shape[0], -1, box_preds.shape[1])
+
+                cls_preds = cls_preds[:, anchor_mask_flat, :]
+                box_preds = box_preds[:, anchor_mask_flat, :]
+
+                if dir_cls_preds is not None:
+                    dir_cls_preds = dir_cls_preds.permute(0, 2, 3, 1).contiguous().view(dir_cls_preds.shape[0], -1,
+                                                                                        dir_cls_preds.shape[1])
+                    dir_cls_preds = dir_cls_preds[:, anchor_mask_flat, :]
+
+                # 7) anchors 也必须按同一个 H,W + 同一个 mask_flat 过滤（根治错位）
+                new_anchors = []
+                for a in self.anchors_root:
+                    a = a[:, :H, :W, ...]  # [1, H, W, ...]
+                    a = a.view(a.shape[0], -1, *a.shape[3:])  # [1, H*W, ...]
+                    a = a[:, anchor_mask_flat, ...]  # [1, N_valid, ...]
+                    new_anchors.append(a)
+                self.anchors = new_anchors
+
+                # 8) 存 dict（注意：这里的 cls_preds/box_preds 已经是 [B, N_valid, C]）
                 self.forward_ret_dict['cls_preds'] = cls_preds
                 self.forward_ret_dict['box_preds'] = box_preds
-
-                if self.conv_dir_cls is not None:
-                    dir_cls_preds = self.conv_dir_cls(st_features_2d)
-                    dir_cls_preds = dir_cls_preds.permute(0, 2, 3, 1).contiguous()[:,anchor_mask,:]
+                if dir_cls_preds is not None:
                     self.forward_ret_dict['dir_cls_preds'] = dir_cls_preds
-                else:
-                    dir_cls_preds = None
 
             else:
                 if 'st_features_2d'+str(-i) not in data_dict:
